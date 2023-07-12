@@ -11,7 +11,7 @@ class MyUserAdmin(UserAdmin):
 	fieldsets = (
 		(None, {'fields': ('username', 'email', 'password')}),
 		('Permissions', {'fields': ('is_staff', 'is_superuser', 'is_active')}),
-		('Timestamps', {'fields': ('created', 'updated', 'last_login')}),
+		('Timestamps', {'fields': ('created_at', 'updated_at', 'last_login')}),
 	)
 	readonly_fields = ('created_at', 'updated_at', 'last_login')
 	add_fieldsets = ((None, {'fields': ('username', 'email', 'password1', 'password2')}), ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser')}))
