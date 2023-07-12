@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div id="keyChange">
+
+</div>
+<h2>{{title}} Tunes</h2>
+{% for tune in tunes %}
+<a href="{% url 'detail' tune.id %}">
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ tune.name }}</span>
+      <p>Key: {{ tune.key }}</p>
+    </div>
+  </div>
+</a>
+{% endfor %}
+
+{% endblock %}
