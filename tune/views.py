@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Tune
+from django.urls import reverse_lazy
 # Create your views here.
 
 def home(request):
@@ -25,10 +26,14 @@ def tunes_detail(request, tune_id):
 class TuneCreate(CreateView):
     model = Tune
     fields = '__all__'
+    def get_success_url(self):
+        return reverse_lazy('tune:detail', kwargs={'tune_id': self.object.pk})
 
 class TuneUpdate(UpdateView):
     model = Tune
     fields = '__all__'
+    def get_success_url(self):
+        return reverse_lazy('tune:detail', kwargs={'tune_id': self.object.pk})
 
 class TuneDelete(DeleteView):
     model = Tune
