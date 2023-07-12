@@ -4,8 +4,8 @@
 <h2>Welcome to Tune Collector</h2>
 <p>Store all your tunes away so you never forget them!</p>
 <div id="buttonHome">
-    <button id='startedBtn' type="submit"><a href="{% url 'tunes_create' %}">Get Started</a></button>
-    <button id='learnBtn' type="submit"><a href="{% url 'about' %}">Learn More</a></button>
+    <button id='startedBtn' type="submit"><a href="{% url 'tune:tunes_create' %}">Get Started</a></button>
+    <button id='learnBtn' type="submit"><a href="{% url 'tune:about' %}">Learn More</a></button>
 </div>
 <img id='homepageImg' src="https://upload.wikimedia.org/wikipedia/commons/2/22/TheSkilletLickers.jpg">
 {% endblock %}
