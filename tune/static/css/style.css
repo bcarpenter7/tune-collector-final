@@ -1,10 +1,13 @@
 
 :root {
     --tan: #D7BF9B;
-    --accent: #DAB04E;
+    --accent: rgb(52, 146, 52);
     --green: #68603C;
     --card: white;
     --background: #778899;
+    --darkBlue: rgb(85, 97, 109);
+    /* --blue: rgb(27, 174, 218); */
+    --accent: rgb(39, 113, 218);
  }
  
 
@@ -49,18 +52,20 @@
  
  #startedBtn > a {
      color: white;
+     padding: 2vmin;
  }
  
  #startedBtn {
-     background-color: var(--accent);
+    background-color: var(--accent);
  }
  
  #learnBtn > a {
      color: white;
+     padding: 2vmin;
  }
  
  #learnBtn {
-     background-color: slategray;
+     background-color: var(--darkBlue);
  }
  
  #homepageImg {
@@ -91,12 +96,6 @@
     #welcomeMsg {
         font-size: 3vmin;
     }
-
-
-
-
-
-
  }
  
  /* NAV BAR */
@@ -130,14 +129,39 @@
     margin-right: 5vmin;
     gap: 5vmin;
     margin-top: 3vmin;
+    font-size: 4vmin;
     /* margin-left: 70vmin; */
+ }
+
+ #nav-login > a {
+    color: black;
+ }
+
+ #loginBtn {
+    background-color: white;
+    color: var(--accent);
+    padding: 2vmin;
+    border-radius: 100px;
+ }
+
+ #createBtn {
+    background-color: var(--accent);
+    color: white;
+    padding: 2vmin;
+    border-radius: 100px;
  }
 
  #logoutBtn {
     text-decoration: none;
-    color: white;
+    background-color: white;
+    color: black;
+    padding: 2vmin;
+    border-radius: 100px;
  }
 
+ #logoutBtn > * {
+    color: white;
+ }
  /* REGISTER FORM */
 
  #registerForm {
@@ -158,14 +182,8 @@
     font-size: 2vmin;
  }
 
- #registerForm > h1 {
-    font-size: 6vmin;
-    text-align: center;
-    padding: 0;
- }
-
- #registrationBtn {
-    background-color: rgb(52, 146, 52);
+ .registrationBtn {
+    background-color: var(--accent);
     color: white;
     border-radius: 5px;
     border: none;
@@ -178,8 +196,15 @@
  #fieldId > input {
     width: 97.5%;
     height: 5vmin;
+    margin-bottom: 1vmin;
+    margin-top: 1vmin;
  }
 
+ .logHeader {
+    font-size: 6vmin;
+    text-align: center;
+    padding: 0;
+ }
 
  /* ABOUT */
  

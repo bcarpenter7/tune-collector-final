@@ -6,8 +6,8 @@ from .models import MyUser
 
 
 class UserLoginForm(AuthenticationForm):
-    username = forms.CharField(label='Username', help_text='Enter your username')
-    password = forms.CharField(label='Password', help_text='Enter your password', widget=forms.PasswordInput())
+    username = forms.CharField(label='Username', help_text='')
+    password = forms.CharField(label='Password', help_text='', widget=forms.PasswordInput())
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

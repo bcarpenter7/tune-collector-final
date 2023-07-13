@@ -16,8 +16,8 @@
     </div>
     {% else %}
     <div id="nav-login">
-        <a href="{% url 'account:login' %}">Log in</a>
-        <a href="{% url 'account:register' %}">Create Account</a>
+        <a id="loginBtn" href="{% url 'account:login' %}">Log in</a>
+        <a id="createBtn" href="{% url 'account:register' %}">Create Account</a>
     </div>
     {% endif %}
 

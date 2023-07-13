@@ -3,7 +3,7 @@
 {% block content %}
     <form id="registerForm" action="{% url 'account:register' %}" method="POST">
         {% csrf_token %}
-        <h1>Register your account</h1>
+        <h1 class="logHeader">Register your account</h1>
         <div id="tableForm">
             {% for field in form.visible_fields %}
             <div>
@@ -16,7 +16,7 @@
             </div>
             {% endfor %}
 
-            <button id="registrationBtn" type="submit">Submit</button>
+            <button class="registrationBtn" type="submit">Submit</button>
         </div>
 
     </form>
