@@ -9,10 +9,19 @@
     <title>Base</title>
 </head>
 <body>
+    <h1>{% if request.user.is_authenticated %}</h1>
+    <div id="nav-login">
+        <a id="logoutBtn" href="{% url 'account:logout' %}">Logout, {{ request.user }}</a>
+
+    </div>
+    {% else %}
     <div id="nav-login">
         <a href="{% url 'account:login' %}">Log in</a>
-        <a href="{% url 'account:login' %}">Create Account</a>
+        <a href="{% url 'account:register' %}">Create Account</a>
     </div>
+    {% endif %}
+
+    
     <nav id="nav-bar">
             <a href="/">Home</a>
             <a href="{% url 'tune:about' %}">About</a>

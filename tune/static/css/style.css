@@ -133,11 +133,11 @@
     /* margin-left: 70vmin; */
  }
 
- 
+ #logoutBtn {
+    text-decoration: none;
+    color: white;
+ }
 
-
- 
- 
  
  /* ABOUT */
  
