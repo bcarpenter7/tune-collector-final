@@ -141,20 +141,44 @@
  /* REGISTER FORM */
 
  #registerForm {
-    padding: 4vmin;
-    margin-top: 10vmin;
+    padding: 2vmin 4vmin;
     background-color: white;
     border-radius: 5px;
     box-shadow: 1px 1px 1px 1px black;
-    width: 90%;
-    margin: 0 auto;
+    width: 85%;
+    margin: 10vmin auto;
  }
 
  #registerForm > p {
     font-size: 3vmin;
  }
 
+ #ex {
+    color: red;
+    font-size: 2vmin;
+ }
 
+ #registerForm > h1 {
+    font-size: 6vmin;
+    text-align: center;
+    padding: 0;
+ }
+
+ #registrationBtn {
+    background-color: rgb(52, 146, 52);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 2vmin;
+ }
+
+ #fieldId {
+    width: 100%;
+ }
+ #fieldId > input {
+    width: 97.5%;
+    height: 5vmin;
+ }
 
 
  /* ABOUT */
