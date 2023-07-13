@@ -10,7 +10,17 @@
 <form action="" method="POST">
     {% csrf_token %}
     <div id="tableForm">
-        {{ form }}
+        <div id="tableForm">
+        {% for field in form.visible_fields %}
+        <div>
+            <label>{{ field.label }}: </label>
+            <div>
+                {{ field }}
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
         <input id="btnAddTune" type="submit" value="Submit" class="btn">
     </div>
     
