@@ -6,7 +6,6 @@
     --card: white;
     --background: #778899;
     --darkBlue: rgb(85, 97, 109);
-    /* --blue: rgb(27, 174, 218); */
     --accent: rgb(39, 113, 218);
  }
  
@@ -138,6 +137,7 @@
  }
 
  #loginBtn {
+    font-size: 3vmin;
     background-color: white;
     color: var(--accent);
     padding: 2vmin;
@@ -145,6 +145,7 @@
  }
 
  #createBtn {
+    font-size: 3vmin;
     background-color: var(--accent);
     color: white;
     padding: 2vmin;
@@ -162,6 +163,22 @@
  #logoutBtn > * {
     color: white;
  }
+
+
+ @media only screen and (min-width: 480px) {
+    #loginBtn, #createBtn {
+        font-size: 2vmin;
+    }
+ }
+
+ @media only screen and (min-width: 760px) {
+    #loginBtn, #createBtn {
+        font-size: 2vmin;
+        padding: 1vmin;
+    }
+ }
+
+
  /* REGISTER FORM */
 
  #registerForm {
@@ -206,6 +223,8 @@
     padding: 0;
  }
 
+ 
+
  /* ABOUT */
  
  
@@ -244,28 +263,42 @@
  
  @media only screen and (min-width:450px){
     
-    #tableForm {
-        width: 80%;
-        margin: 0 auto;
-    }
-    
-    #tableForm > * {
+    #registerForm {
+        padding: 2vmin 4vmin;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 1px 1px 1px 1px black;
+        width: 65%;
+        margin: 10vmin auto;
+     }
+
+        #tableForm > * {
         font-size: 3vmin;
     }
  }
 
  @media only screen and (min-width:576px){
-    
-    /* CANNOT FIX UNTIL FORM IS CHANGED */
-    #tableForm {
-        width: 60%;
-        margin: 0 auto;
-    }
-    
-    #tableForm > * {
-        font-size: 2vmin;
-    }
+
+  #tableForm > * {
+        font-size: 3vmin;
+    } 
  }
+
+ @media only screen and (min-width:780px){
+
+    .logHeader {
+        font-size: 4vmin;
+     }
+    
+    #registerForm {
+        width: 45%;
+     }
+
+
+    #tableForm > * {
+          font-size: 2vmin;
+      } 
+   }
  
  
  
