@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
+from .forms import TuneForm
 from .models import Tune
 from django.urls import reverse_lazy
 # Create your views here.
@@ -25,7 +27,7 @@ def tunes_detail(request, tune_id):
 
 class TuneCreate(CreateView):
     model = Tune
-    fields = '__all__'
+    form_class = TuneForm
 
     def get_success_url(self):
         return reverse_lazy('tune:detail', kwargs={'tune_id': self.object.pk})
