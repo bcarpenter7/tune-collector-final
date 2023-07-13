@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
@@ -12,6 +14,7 @@ def home(request):
 def about(request):
     return render(request, 'about.html' )
 
+@login_required
 def tunes_index(request):
     tunes = Tune.objects.order_by('name')
     return render(request, 'tunes/index.html', {
@@ -19,13 +22,14 @@ def tunes_index(request):
         'title': 'All'
     })
 
+@login_required
 def tunes_detail(request, tune_id):
     tune = Tune.objects.get(id=tune_id)
     return render(request, 'tunes/detail.html', {
-    'tune': tune
-})
+        'tune': tune
+    })
 
-class TuneCreate(CreateView):
+class TuneCreate(LoginRequiredMixin, CreateView):
     model = Tune
     form_class = TuneForm
 
@@ -39,13 +43,13 @@ class TuneCreate(CreateView):
         return redirect(self.get_success_url())
 
 
-class TuneUpdate(UpdateView):
+class TuneUpdate(LoginRequiredMixin, UpdateView):
     model = Tune
     fields = '__all__'
     def get_success_url(self):
         return reverse_lazy('tune:detail', kwargs={'tune_id': self.object.pk})
 
-class TuneDelete(DeleteView):
+class TuneDelete(LoginRequiredMixin, DeleteView):
     model = Tune
     success_url = '/tunes'
 
@@ -53,6 +57,7 @@ class TuneDelete(DeleteView):
 
 # EXPERIMENTAL DOWN HERE
 
+@login_required
 def tunes_index_d(request):
     tunes = Tune.objects.filter(key='D').order_by('name')
     return render(request, 'tunes/index.html', {
@@ -60,6 +65,7 @@ def tunes_index_d(request):
         'title': 'D'
     })
 
+@login_required
 def tunes_index_a(request):
     tunes = Tune.objects.filter(key='A').order_by('name')
     return render(request, 'tunes/index.html', {
@@ -67,6 +73,7 @@ def tunes_index_a(request):
         'title': 'A'
     })
 
+@login_required
 def tunes_index_g(request):
     tunes = Tune.objects.filter(key='G').order_by('name')
     return render(request, 'tunes/index.html', {
@@ -74,6 +81,7 @@ def tunes_index_g(request):
         'title': 'G'
     })
 
+@login_required
 def tunes_index_c(request):
     tunes = Tune.objects.filter(key='C').order_by('name')
     return render(request, 'tunes/index.html', {
