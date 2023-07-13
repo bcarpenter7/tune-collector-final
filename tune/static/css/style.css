@@ -1,19 +1,24 @@
 
 :root {
     --tan: #D7BF9B;
-    --yellow: #DAB04E;
+    --accent: #DAB04E;
     --green: #68603C;
     --card: white;
     --background: #778899;
  }
  
+
+ /* BASE */
  
- 
- 
+ .container {
+    width: 90vmin;
+    background-color: var(--gray);
+    margin: 0 auto;
+}
+
  * {
      font-family: Arial, Helvetica, sans-serif
  }
- 
  
  body {
      background-color: var(--background);
@@ -39,6 +44,7 @@
      border-radius: 200px;
      border: none;
      color: white;
+     padding: 1vmin;
  }
  
  #startedBtn > a {
@@ -46,7 +52,7 @@
  }
  
  #startedBtn {
-     background-color: var(--card);
+     background-color: var(--accent);
  }
  
  #learnBtn > a {
@@ -59,8 +65,39 @@
  
  #homepageImg {
      border-radius: 5px;
+     margin: 0 auto;
+     padding-top: 8vmin;
+     display: block;
+ }
+
+ #welcomeMsg {
+    text-align: center;
  }
  
+  
+ @media only screen and (min-width:576px){
+    
+    #buttonHome > button {
+        font-size: 2vmin;
+        border-radius: 200px;
+        border: none;
+        color: white;
+    }
+
+ }
+
+ @media only screen and (min-width:992px){
+    
+    #welcomeMsg {
+        font-size: 3vmin;
+    }
+
+
+
+
+
+
+ }
  
  /* NAV BAR */
  #nav-bar {
@@ -82,14 +119,23 @@
      color: rgb(162, 159, 159);
      cursor: pointer;
  }
- 
- /* BASE */
- 
- .container {
-     width: 90vmin;
-     background-color: var(--gray);
-     margin: 0 auto;
+
+ #nav-normal {
+    justify-content: center;
  }
+
+ #nav-login {
+    display: flex;
+    justify-content: end;
+    margin-right: 5vmin;
+    gap: 5vmin;
+    margin-top: 3vmin;
+    /* margin-left: 70vmin; */
+ }
+
+ 
+
+
  
  
  
@@ -103,11 +149,11 @@
      text-align: center;
  }
  
- #containerForm > form > table{
+ #containerForm > form > table {
      width: 10vmin;
  }
  
- #containerForm > form > input {
+ #btnAddTune {
      font-size: 6vmin;
      width: 100%;
      height: 9vmin;
@@ -129,8 +175,30 @@
      font-weight: 800;
  }
  
- 
- 
+ @media only screen and (min-width:450px){
+    
+    #tableForm {
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+    #tableForm > * {
+        font-size: 3vmin;
+    }
+ }
+
+ @media only screen and (min-width:576px){
+    
+    /* CANNOT FIX UNTIL FORM IS CHANGED */
+    #tableForm {
+        width: 60%;
+        margin: 0 auto;
+    }
+    
+    #tableForm > * {
+        font-size: 2vmin;
+    }
+ }
  
  
  

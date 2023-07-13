@@ -1,0 +1,21 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Base</title>
+</head>
+<body>
+
+    <main class="container">
+        <h2>You must be logged in to Add Tunes or View Tunes.</h2>
+        <div id="buttonHome">
+            <button id='startedBtn' type="submit"><a href="{% url 'account:register' %}">Register An Account</a></button>
+            <button id='learnBtn' type="submit"><a href="{% url 'tune:about' %}">Learn More</a></button>
+        </div>
+    </main>
+</body>
+</html>

@@ -10,9 +10,10 @@
 <form action="" method="POST">
     {% csrf_token %}
     <div id="tableForm">
-        {{ form}}
+        {{ form }}
+        <input id="btnAddTune" type="submit" value="Submit" class="btn">
     </div>
-    <input type="submit" value="Submit" class="btn">
+    
 
 </form>
 </div>
