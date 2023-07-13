@@ -1,11 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
-    <form  action="{% url 'account:login' %}" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    {% if request.GET.next %}
-    <input type="hidden" name="next" value="{{ request.GET.next }}">
-    {% endif %}
-    <button type="submit">Log in</button>
+    <form action="{% url 'account:login' %}" method="POST">
+        {% csrf_token %}
+        <div id="tableForm">
+            {% for field in form.visible_fields %}
+                <div>
+                    <label>{{ field.label }}: {{ field.help_text }}</label>
+                    <div id="field_{{ field.label }}">
+                        {{ field }}
+                    </div>
+                </div>
+            {% endfor %}
+
+            {% if request.GET.next %}
+                <input type="hidden" name="next" value="{{ request.GET.next }}">
+            {% endif %}
+            <button type="submit">Log in</button>
+        </div>
     </form>
 {% endblock content %}
