@@ -1,9 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <form action="{% url 'account:register' %}" method="POST">
+    <form id="registerForm" action="{% url 'account:register' %}" method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
+<div id="tableForm">
+    <div id="tableForm">
+    {% for field in form.visible_fields %}
+    <div>
+        <label>{{ field.label }}: </label>
+        <div id="fieldId">
+            {{ field }}
+        </div>
+    </div>
+    {% endfor %}
         <button type="submit">Submit</button>
+    </div>
+</div>
+
     </form>
 {% endblock content %}
+
+
+
