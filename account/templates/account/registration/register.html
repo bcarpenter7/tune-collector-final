@@ -3,22 +3,21 @@
 {% block content %}
     <form id="registerForm" action="{% url 'account:register' %}" method="POST">
         {% csrf_token %}
-<div id="tableForm">
-    <div id="tableForm">
-    {% for field in form.visible_fields %}
-    <div>
-        <label>{{ field.label }}: </label>
-        <div id="fieldId">
-            {{ field }}
+        <h1>Register your account</h1>
+        <div id="tableForm">
+            {% for field in form.visible_fields %}
+            <div>
+                <label>{{ field.label }}: </label>
+                <div id="fieldId">
+                    {{ field }}
+                    <!-- <span id='ex'>{{ field.help_text}}</span> -->
+                </div>
+
+            </div>
+            {% endfor %}
+
+            <button id="registrationBtn" type="submit">Submit</button>
         </div>
-    </div>
-    {% endfor %}
-        <button type="submit">Submit</button>
-    </div>
-</div>
 
     </form>
 {% endblock content %}
-
-
-
