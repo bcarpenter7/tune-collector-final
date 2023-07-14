@@ -15,12 +15,12 @@
 
     #hamDiv {
         width: 0;
-        height: 100vh;
+        height: 100%;
         background-color: rgba(29, 29, 29, .95);
         z-index: 2;
         position: fixed;
         top: 0;
-        left: 0;
+        right: 0; 
         overflow-x: hidden;
         padding-top: 60px; 
         transition: 0.5s;
@@ -36,6 +36,7 @@
         color: white;
         padding-bottom: 3vmin;
         font-size: 8vmin;
+        white-space: nowrap;
     }
 
     #hamBtn {
@@ -322,7 +323,7 @@
 
  /* REGISTER FORM */
 
- #registerForm {
+#registerForm {
     padding: 2vmin 4vmin;
     background-color: white;
     border-radius: 5px;
@@ -351,10 +352,11 @@
  #fieldId {
     width: 100%;
  }
+
  #fieldId > input, textarea {
     width: 97.5%;
-    height: 5vmin;
-    margin-bottom: 1vmin;
+    height: 4vmin;
+    margin-bottom: 0vmin;
     margin-top: 1vmin;
  }
 
@@ -601,4 +603,11 @@
      display: flex;
      justify-content: space-between;
      padding: 1vmin 1.5vmin;
+ }
+
+
+ /* ADD A TUNE */
+
+ .addTune {
+    margin-top: 3vmin !important;
  }
