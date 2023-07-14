@@ -24,7 +24,7 @@
 
  @media only screen and (min-width: 480px){
     #holder {
-        width: 85%;
+        width: 90%;
     }
  }
 
@@ -347,9 +347,24 @@
  }
 
  #aboutPara {
-   font-size: 4.5vmin;
+   font-size: 3.5vmin;
  }
 
+
+@media only screen and (min-width: 450px){
+    #aboutDiv {
+        margin-top: 5vmin;
+        min-height: 40vmin;
+    }
+
+    #aboutPara {
+        font-size: 2.5vmin;
+    }
+
+    #aboutTitle {
+        font-size: 4vmin;
+     }
+}
 
  @media only screen and (min-width: 760px){
     #aboutDiv {
@@ -359,9 +374,9 @@
 
     #aboutPara {
         font-size: 2vmin;
-      }
+    }
 
-      #aboutTitle {
+    #aboutTitle {
         font-size: 5vmin;
      }
  }
