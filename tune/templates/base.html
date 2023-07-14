@@ -53,7 +53,7 @@
     {% endif %}
 
     <main class="container">
-        <span id="errorMsg" >{% include 'messages.html' %} {% include 'form_errors.html' %}</span>
+        {% include 'messages.html' %} {% include 'form_errors.html' %}
         {% block content %}
         {% endblock %}
     </main>

@@ -13,9 +13,7 @@
  
 
  /* BASE */
- #errorMsg > * {
-    color: red;
- }
+
 
  #holder {
     width: 95%;
@@ -314,7 +312,7 @@
  #fieldId {
     width: 100%;
  }
- #fieldId > input {
+ #fieldId > input, textarea {
     width: 97.5%;
     height: 5vmin;
     margin-bottom: 1vmin;
@@ -331,6 +329,50 @@
 
  /* ABOUT */
  
+ #aboutDiv {
+    background-color: var(--black);
+    width: 90%;
+    color: var(--background);
+    padding: 3vmin;
+    margin: 20vmin auto 0 auto;
+    text-align: center;
+    min-height: 50vmin;
+    border-radius: 5px;
+ }
+
+ #aboutTitle {
+    font-size: 8vmin;
+    margin-top: 2vmin;
+    text-align: center;
+ }
+
+ #aboutPara {
+   font-size: 4.5vmin;
+ }
+
+
+ @media only screen and (min-width: 760px){
+    #aboutDiv {
+        margin-top: 5vmin;
+        min-height: 40vmin;
+    }
+
+    #aboutPara {
+        font-size: 2vmin;
+      }
+
+      #aboutTitle {
+        font-size: 5vmin;
+     }
+ }
+
+ @media only screen and (min-width: 1060px){
+    #aboutDiv {
+        margin-top: 5vmin;
+        min-height: 30vmin;
+        width: 60vmin;
+    }
+ }
  
  /* ADD A TUNE */
  #addTitle {
