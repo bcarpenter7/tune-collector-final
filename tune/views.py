@@ -16,7 +16,7 @@ def about(request):
 
 @login_required
 def tunes_index(request):
-    tunes = Tune.objects.order_by('name')
+    tunes = Tune.objects.filter(user=request.user).order_by('name')
     return render(request, 'tunes/index.html', {
         'tunes': tunes,
         'title': 'All'
@@ -24,7 +24,7 @@ def tunes_index(request):
 
 @login_required
 def tunes_detail(request, tune_id):
-    tune = Tune.objects.get(id=tune_id)
+    tune = Tune.objects.get(pk=tune_id, user=request.user)
     return render(request, 'tunes/detail.html', {
         'tune': tune
     })
@@ -46,6 +46,7 @@ class TuneCreate(LoginRequiredMixin, CreateView):
 class TuneUpdate(LoginRequiredMixin, UpdateView):
     model = Tune
     fields = '__all__'
+
     def get_success_url(self):
         return reverse_lazy('tune:detail', kwargs={'tune_id': self.object.pk})
 
@@ -59,7 +60,7 @@ class TuneDelete(LoginRequiredMixin, DeleteView):
 
 @login_required
 def tunes_index_d(request):
-    tunes = Tune.objects.filter(key='D').order_by('name')
+    tunes = Tune.objects.filter(key='D', user=request.user).order_by('name')
     return render(request, 'tunes/index.html', {
         'tunes': tunes,
         'title': 'D'
@@ -67,7 +68,7 @@ def tunes_index_d(request):
 
 @login_required
 def tunes_index_a(request):
-    tunes = Tune.objects.filter(key='A').order_by('name')
+    tunes = Tune.objects.filter(key='A', user=request.user).order_by('name')
     return render(request, 'tunes/index.html', {
         'tunes': tunes,
         'title': 'A'
@@ -75,7 +76,7 @@ def tunes_index_a(request):
 
 @login_required
 def tunes_index_g(request):
-    tunes = Tune.objects.filter(key='G').order_by('name')
+    tunes = Tune.objects.filter(key='G', user=request.user).order_by('name')
     return render(request, 'tunes/index.html', {
         'tunes': tunes,
         'title': 'G'
@@ -83,7 +84,7 @@ def tunes_index_g(request):
 
 @login_required
 def tunes_index_c(request):
-    tunes = Tune.objects.filter(key='C').order_by('name')
+    tunes = Tune.objects.filter(key='C', user=request.user).order_by('name')
     return render(request, 'tunes/index.html', {
         'tunes': tunes,
         'title': 'C'
