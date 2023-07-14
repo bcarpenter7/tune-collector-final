@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
@@ -46,7 +46,7 @@ class TuneCreate(LoginRequiredMixin, CreateView):
         return redirect(self.get_success_url())
 
 
-class TuneUpdate(LoginRequiredMixin, UpdateView):
+class TuneUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Tune
     fields = '__all__'
 
@@ -57,8 +57,12 @@ class TuneUpdate(LoginRequiredMixin, UpdateView):
         messages.add_message(self.request, messages.SUCCESS, 'Updated successfully')
         return super().form_valid(form)
 
+    def test_func(self):
+        # check to make sure that logged-in user owns the object that they are trying to delete
+        obj = Tune.objects.get(pk=self.kwargs['pk'])
+        return obj.user == self.request.user
 
-class TuneDelete(LoginRequiredMixin, DeleteView):
+class TuneDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Tune
     success_url = '/tunes'
 
@@ -66,37 +70,18 @@ class TuneDelete(LoginRequiredMixin, DeleteView):
         messages.add_message(self.request, messages.SUCCESS, 'Deleted successfully')
         return super().form_valid(form)
 
-
-# EXPERIMENTAL DOWN HERE
-
-@login_required
-def tunes_index_d(request):
-    tunes = Tune.objects.filter(key='D', user=request.user).order_by('name')
-    return render(request, 'tunes/index.html', {
-        'tunes': tunes,
-        'title': 'D'
-    })
+    def test_func(self):
+        # check to make sure that logged-in user owns the object that they are trying to delete
+        obj = Tune.objects.get(pk=self.kwargs['pk'])
+        return obj.user == self.request.user
 
 @login_required
-def tunes_index_a(request):
-    tunes = Tune.objects.filter(key='A', user=request.user).order_by('name')
-    return render(request, 'tunes/index.html', {
+def tunes_note_filter(request, char):
+    tunes = Tune.objects.filter(key__iexact=char, user=request.user).order_by('name')
+    context = {
         'tunes': tunes,
-        'title': 'A'
-    })
-
-@login_required
-def tunes_index_g(request):
-    tunes = Tune.objects.filter(key='G', user=request.user).order_by('name')
-    return render(request, 'tunes/index.html', {
-        'tunes': tunes,
-        'title': 'G'
-    })
-
-@login_required
-def tunes_index_c(request):
-    tunes = Tune.objects.filter(key='C', user=request.user).order_by('name')
-    return render(request, 'tunes/index.html', {
-        'tunes': tunes,
-        'title': 'C'
-    })
+        'title': char.upper()
+    }
+    if len(char) > 1:
+        context['title'] = f'{char} is an invalid selection for '
+    return render(request, 'tunes/index.html', context)
