@@ -4,7 +4,8 @@
     --accent: rgb(52, 146, 52);
     --green: #68603C;
     --card: white;
-    --background: #778899;
+    --black: rgb(29, 29, 29);
+    --background: rgb(255, 255, 255);
     --darkBlue: rgb(85, 97, 109);
     --accent: rgb(39, 113, 218);
  }
@@ -12,24 +13,57 @@
 
  /* BASE */
  
+
+
+ #holder {
+    width: 95%;
+    background-color: var(--background);
+    margin: 0 auto;
+    min-height: 100vh;
+ }
+
+ @media only screen and (min-width: 480px){
+    #holder {
+        width: 85%;
+    }
+ }
+
+ @media only screen and (min-width: 760px){
+    #holder {
+        width: 75%;
+    }
+ }
+
  .container {
-    width: 90vmin;
-    background-color: var(--gray);
+    width: 80%;
+    background-color: var(--background);
     margin: 0 auto;
 }
 
- * {
-     font-family: Arial, Helvetica, sans-serif
- }
+* {
+    font-family: Arial, Helvetica, sans-serif;
+
+}
  
  body {
-     background-color: var(--background);
+     background-color: var(--black);
      margin: 0 auto;
+     font-family: 'Inter', sans-serif;
+     
  }
+
+ body > * {
+    background-color: var(--background);
+ }
+
+
+ .container {
+    background-color: var(--background);
+ }
+
+
  
- h2 {
-     text-align: center;
- }
+
  
  
  /* HOME */
@@ -72,12 +106,19 @@
      margin: 0 auto;
      padding-top: 8vmin;
      display: block;
+     width: 80%;
  }
 
  #welcomeMsg {
     text-align: center;
+    background-color: var(--background);
  }
  
+ #homeTitle {
+    text-align: center;
+    /* border: 2px solid var(--black); */
+    background-color: var(--background);
+    }
   
  @media only screen and (min-width:576px){
     
@@ -95,21 +136,41 @@
     #welcomeMsg {
         font-size: 3vmin;
     }
+
+    #homepageImg {
+        border-radius: 5px;
+        margin: 0 auto;
+        padding-top: 8vmin;
+        display: block;
+        width: 50%;
+    }
  }
  
  /* NAV BAR */
  #nav-bar {
      display: flex;
-     gap: 5vmin;
      padding-top: 5vmin;
+     padding-bottom: 2vmin;
      width: 100%;
-     justify-content: center;
+     margin: 5vmin auto 0 auto;
+     gap: 1vmin;
+     align-items: center;
+     background-color: var(--background);
+     border-bottom: 5px solid var(--black);
+     justify-content: space-between;
+ }
+
+ @media only screen and (min-width: 480px){
+    #nav-bar {
+        gap: 0;
+        justify-content: space-between;
+    }
  }
  
- #nav-bar > a {
+ #navDiv > a {
      text-decoration: none;
-     color: var(--blue);
-     font-size: 4.5vmin;
+     color: var(--black);
+     font-size: 2.5vmin;
      padding: 1vmin;
  }
  
@@ -122,59 +183,70 @@
     justify-content: center;
  }
 
+ #navDiv {
+    display: flex;
+    gap: 2vmin;
+ }
+
+ #homeBtnDiv {
+    margin-left: 2vmin;
+    font-family: 'Caveat', cursive;
+    /* font-family: 'Inter', sans-serif;
+    font-family: 'Roboto', sans-serif; */
+ }
+
+ #homeBtnDiv > * {
+    font-family: 'Caveat', cursive;
+    color: var(--black);
+    font-size: 5vmin;
+ }
+
  #nav-login {
     display: flex;
     justify-content: end;
-    margin-right: 5vmin;
     gap: 5vmin;
-    margin-top: 3vmin;
-    font-size: 4vmin;
-    /* margin-left: 70vmin; */
+    /* font-size: 4vmin; */
+    margin-right: 2vmin;
  }
 
  #nav-login > a {
-    color: black;
+    color: var(--background);
  }
 
- #loginBtn {
+ #loginBtn, #logoutBtn {
     font-size: 3vmin;
-    background-color: white;
-    color: var(--accent);
-    padding: 2vmin;
-    border-radius: 100px;
+    background-color: var(--black);
+    color: var(--background);
+    border: 2px solid var(--black);
+    width: 10vmin;
+    text-align: center;
+    height: 2.5vmin;
+    align-items: center;
+    border-radius: 5px;
+    padding: 1vmin;
  }
-
- #createBtn {
-    font-size: 3vmin;
-    background-color: var(--accent);
-    color: white;
-    padding: 2vmin;
-    border-radius: 100px;
- }
-
- #logoutBtn {
-    text-decoration: none;
-    background-color: white;
-    color: black;
-    padding: 2vmin;
-    border-radius: 100px;
- }
-
- #logoutBtn > * {
-    color: white;
- }
-
 
  @media only screen and (min-width: 480px) {
-    #loginBtn, #createBtn {
-        font-size: 2vmin;
+    #loginBtn, #logoutBtn {
+        font-size: 2.5vmin;
+        width: 8vmin;
     }
  }
 
  @media only screen and (min-width: 760px) {
-    #loginBtn, #createBtn {
+    #loginBtn, #logoutBtn {
         font-size: 2vmin;
-        padding: 1vmin;
+        width: 6vmin;
+    }
+
+    #navDiv > a {
+        font-size: 2vmin;
+    }
+ }
+
+ @media only screen and (min-width: 1060px) {
+    #navDiv > a {
+        font-size: 3vmin;
     }
  }
 
