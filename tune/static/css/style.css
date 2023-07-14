@@ -158,7 +158,7 @@
  /* NAV BAR */
  #nav-bar {
      display: flex;
-     padding-top: 5vmin;
+     padding-top: 2vmin;
      padding-bottom: 2vmin;
      width: 100%;
      margin: 5vmin auto 0 auto;
