@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 <div id="keyChange">
-    <a href="{% url 'tune:index_c' %}">C Tunes</a>
-    <a href="{% url 'tune:index_d' %}">D Tunes</a>
-    <a href="{% url 'tune:index_a' %}">A Tunes</a>
-    <a href="{% url 'tune:index_g' %}">G Tunes</a>
+    <a href="{% url 'tune:note_filter' 'C' %}">C Tunes</a>
+    <a href="{% url 'tune:note_filter' 'D' %}">D Tunes</a>
+    <a href="{% url 'tune:note_filter' 'A' %}">A Tunes</a>
+    <a href="{% url 'tune:note_filter' 'G' %}">G Tunes</a>
   
 </div>
-<h2>{{title}} Tunes</h2>
+<h2>{{ title }} Tunes</h2>
 {% for tune in tunes %}
 <a href="{% url 'tune:detail' tune.id %}">
   <div class="card">

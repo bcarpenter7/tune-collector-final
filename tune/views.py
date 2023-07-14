@@ -66,37 +66,13 @@ class TuneDelete(LoginRequiredMixin, DeleteView):
         messages.add_message(self.request, messages.SUCCESS, 'Deleted successfully')
         return super().form_valid(form)
 
-
-# EXPERIMENTAL DOWN HERE
-
 @login_required
-def tunes_index_d(request):
-    tunes = Tune.objects.filter(key='D', user=request.user).order_by('name')
-    return render(request, 'tunes/index.html', {
+def tunes_note_filter(request, char):
+    tunes = Tune.objects.filter(key__iexact=char, user=request.user).order_by('name')
+    context = {
         'tunes': tunes,
-        'title': 'D'
-    })
-
-@login_required
-def tunes_index_a(request):
-    tunes = Tune.objects.filter(key='A', user=request.user).order_by('name')
-    return render(request, 'tunes/index.html', {
-        'tunes': tunes,
-        'title': 'A'
-    })
-
-@login_required
-def tunes_index_g(request):
-    tunes = Tune.objects.filter(key='G', user=request.user).order_by('name')
-    return render(request, 'tunes/index.html', {
-        'tunes': tunes,
-        'title': 'G'
-    })
-
-@login_required
-def tunes_index_c(request):
-    tunes = Tune.objects.filter(key='C', user=request.user).order_by('name')
-    return render(request, 'tunes/index.html', {
-        'tunes': tunes,
-        'title': 'C'
-    })
+        'title': char.upper()
+    }
+    if len(char) > 1:
+        context['title'] = f'{char} is an invalid selection for '
+    return render(request, 'tunes/index.html', context)
