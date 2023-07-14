@@ -1,4 +1,7 @@
+from django.contrib import messages
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+
 from .forms import RegistrationForm
 
 
@@ -13,7 +16,8 @@ def user_registration_view(request):
 			user.email = form.cleaned_data['email']
 			user.set_password(form.cleaned_data['password2'])
 			user.save()
-			return redirect('/')
+			messages.add_message(request, messages.SUCCESS, 'Account created, please log in')
+			return redirect(reverse_lazy('account:login'))
 	else:
 		form = RegistrationForm()
 		
@@ -33,4 +37,5 @@ def user_deletion_confirm(request):
 	if request.user.is_authenticated:
 		request.user.is_active = False
 		request.user.save()
+		messages.add_message(request, messages.SUCCESS, 'Account deleted')
 		return redirect('/')
