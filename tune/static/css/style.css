@@ -323,14 +323,12 @@
  .logHeader {
     font-size: 6vmin;
     text-align: center;
-    padding: 0;
+    padding: none;
  }
 
  
 
  /* ABOUT */
- 
- 
  
  
  /* ADD A TUNE */
