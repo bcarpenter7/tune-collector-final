@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
@@ -46,7 +46,7 @@ class TuneCreate(LoginRequiredMixin, CreateView):
         return redirect(self.get_success_url())
 
 
-class TuneUpdate(LoginRequiredMixin, UpdateView):
+class TuneUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Tune
     fields = '__all__'
 
@@ -57,14 +57,23 @@ class TuneUpdate(LoginRequiredMixin, UpdateView):
         messages.add_message(self.request, messages.SUCCESS, 'Updated successfully')
         return super().form_valid(form)
 
+    def test_func(self):
+        # check to make sure that logged-in user owns the object that they are trying to delete
+        obj = Tune.objects.get(pk=self.kwargs['pk'])
+        return obj.user == self.request.user
 
-class TuneDelete(LoginRequiredMixin, DeleteView):
+class TuneDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Tune
     success_url = '/tunes'
 
     def form_valid(self, form):
         messages.add_message(self.request, messages.SUCCESS, 'Deleted successfully')
         return super().form_valid(form)
+
+    def test_func(self):
+        # check to make sure that logged-in user owns the object that they are trying to delete
+        obj = Tune.objects.get(pk=self.kwargs['pk'])
+        return obj.user == self.request.user
 
 @login_required
 def tunes_note_filter(request, char):
