@@ -8,6 +8,7 @@
     --background: rgb(255, 255, 255);
     --darkBlue: rgb(85, 97, 109);
     --accent: rgb(39, 113, 218);
+    --accentDark: rgb(36, 104, 200);
  }
  
 
@@ -67,29 +68,37 @@
  
  
  /* HOME */
- 
+
  #buttonHome {
-     display: flex;
-     justify-content: center;
-     gap: 5vmin;
-     margin-bottom: 5vmin;
- }
+    display: flex;
+    justify-content: center;
+    gap: 5vmin;
+    margin-bottom: 5vmin;
+} 
  
- #buttonHome > button {
-     font-size: 4vmin;
-     border-radius: 200px;
-     border: none;
-     color: white;
-     padding: 1vmin;
- }
- 
- #startedBtn > a {
+ #registerBtn > a {
      color: white;
      padding: 2vmin;
  }
  
- #startedBtn {
+ #registerBtn {
     background-color: var(--accent);
+    font-size: 4vmin;
+    border-radius: 200px;
+    color: white;
+    padding: 1vmin;
+    font-weight: bold;
+ }
+
+ #registerBtn:hover {
+    background-color: var(--background);
+    color: var(--accent);
+    outline: 3px solid var(--accent);
+ }
+
+ #registerBtn > a:hover {
+    color: var(--accent);
+
  }
  
  #learnBtn > a {
@@ -242,7 +251,7 @@
     padding: 1vmin;
  }
 
- #logoutBtn:hover {
+ #logoutBtn:hover, #loginBtn:hover {
     background-color: var(--background);
     border-color: var(--black);
     color: var(--black);
