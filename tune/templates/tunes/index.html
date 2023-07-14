@@ -1,38 +1,39 @@
 {% extends 'base.html' %}
 {% block content %}
-<div id="keyChange">
-    <a href="{% url 'tune:note_filter' 'C' %}">C Tunes</a>
-    <a href="{% url 'tune:note_filter' 'D' %}">D Tunes</a>
-    <a href="{% url 'tune:note_filter' 'A' %}">A Tunes</a>
-    <a href="{% url 'tune:note_filter' 'G' %}">G Tunes</a>
-</div>
-<button id="hamBtn" type="submit" onclick="openNav()">Line</button>
 
-<div id="hamDiv">
-  <div id="hamLinks">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="{% url 'tune:note_filter' 'C' %}">C Tunes</a>
-    <a href="{% url 'tune:note_filter' 'D' %}">D Tunes</a>
-    <a href="{% url 'tune:note_filter' 'A' %}">A Tunes</a>
-    <a href="{% url 'tune:note_filter' 'G' %}">G Tunes</a>
+{% if avail_keys %}
+  <div id="hamDiv">
+    <div id="hamLinks">
+      <a href="javascript:void(0)" id="closeBtn" onclick="closeNav()">&times;</a>
+    
+        {% for key in avail_keys %}
+      <a href="{% url 'tune:note_filter' key %}">{{ key }} Tunes</a>
+        {% endfor %}
+    
+
+    </div>
   </div>
-</div>
+{% endif %}
 
 
 <script> 
 function openNav() {
-  document.getElementById("hamDiv").style.width = "100%";
+  document.getElementById("hamDiv").style.width = "60%";
 }
 
 function closeNav() {
   document.getElementById("hamDiv").style.width = "0%";
 }
-
 </script>
 
 
+<div id="titleAndDrop">
+  <h2>{{ title }} Tunes</h2>
+  <svg id="hamBtn" onclick="openNav()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+  </svg>
+</div>
 
-<h2>{{ title }} Tunes</h2>
 {% for tune in tunes %}
 <a href="{% url 'tune:detail' tune.id %}">
   <div class="card">

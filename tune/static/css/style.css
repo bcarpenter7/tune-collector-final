@@ -16,7 +16,7 @@
     #hamDiv {
         width: 0;
         height: 100vh;
-        background-color: rgba(85, 97, 109, .9);
+        background-color: rgba(29, 29, 29, .95);
         z-index: 2;
         position: fixed;
         top: 0;
@@ -38,12 +38,16 @@
         font-size: 8vmin;
     }
 
+    #hamBtn {
+        width: 7vmin;
+        height: 7vmin;
+    }
 
-
-
-
-
-
+    #titleAndDrop {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
 
 
