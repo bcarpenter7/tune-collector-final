@@ -16,16 +16,20 @@
     {% if request.user.is_authenticated %}
     <nav id="nav-bar">
         <div id="homeBtnDiv">
-            <a href="/">Tune Collector</a>
+            <a id="tuneCollector" href="/">Tune Collector</a>
         </div>
         <div id="navDiv">
-            <a href="{% url 'tune:about' %}">About</a>
+            <a href="{% url 'tune:about' %}">About </a>
+            <p>|</p>
             <a href="{% url 'tune:create' %}">Add Tune</a>
+            <p>|</p>
             <a href="{% url 'tune:index' %}">All Tunes</a>
+            <br>
+            <div id="nav-login">
+                <a id="logoutBtn" href="{% url 'account:logout' %}">Logout</a>
+            </div>
         </div>
-        <div id="nav-login">
-            <a id="logoutBtn" href="{% url 'account:logout' %}">Logout</a>
-        </div>
+       
     </nav>
     {% else %}
 
@@ -35,12 +39,16 @@
         </div>
         <div id="navDiv">
             <a href="{% url 'tune:about' %}">About</a>
+            <p>|</p>
             <a href="{% url 'tune:create' %}">Add Tune</a>
+            <p>|</p>
             <a href="{% url 'tune:index' %}">All Tunes</a>
+            <br>
+            <div id="nav-login">
+                <a id="loginBtn" href="{% url 'account:login' %}">Login</a>
+            </div>
         </div>
-        <div id="nav-login">
-            <a id="loginBtn" href="{% url 'account:login' %}">Login</a>
-        </div>
+       
     </nav>
     {% endif %}
 
