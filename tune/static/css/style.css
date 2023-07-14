@@ -13,8 +13,9 @@
  
 
  /* BASE */
- 
-
+ #errorMsg > * {
+    color: red;
+ }
 
  #holder {
     width: 95%;

@@ -52,15 +52,8 @@
     </nav>
     {% endif %}
 
-<!--     
-    <nav id="nav-bar">
-            <a href="/">Home</a>
-            <a href="{% url 'tune:about' %}">About</a>
-            <a href="{% url 'tune:create' %}">Add Tune</a>
-            <a href="{% url 'tune:index' %}">All Tunes</a>
-    </nav> -->
-
     <main class="container">
+        <span id="errorMsg" >{% include 'messages.html' %} {% include 'form_errors.html' %}</span>
         {% block content %}
         {% endblock %}
     </main>
