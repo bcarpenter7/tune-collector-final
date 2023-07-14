@@ -5,8 +5,33 @@
     <a href="{% url 'tune:note_filter' 'D' %}">D Tunes</a>
     <a href="{% url 'tune:note_filter' 'A' %}">A Tunes</a>
     <a href="{% url 'tune:note_filter' 'G' %}">G Tunes</a>
-  
 </div>
+<button id="hamBtn" type="submit" onclick="openNav()">Line</button>
+
+<div id="hamDiv">
+  <div id="hamLinks">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="{% url 'tune:note_filter' 'C' %}">C Tunes</a>
+    <a href="{% url 'tune:note_filter' 'D' %}">D Tunes</a>
+    <a href="{% url 'tune:note_filter' 'A' %}">A Tunes</a>
+    <a href="{% url 'tune:note_filter' 'G' %}">G Tunes</a>
+  </div>
+</div>
+
+
+<script> 
+function openNav() {
+  document.getElementById("hamDiv").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("hamDiv").style.width = "0%";
+}
+
+</script>
+
+
+
 <h2>{{ title }} Tunes</h2>
 {% for tune in tunes %}
 <a href="{% url 'tune:detail' tune.id %}">
