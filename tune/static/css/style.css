@@ -19,7 +19,7 @@
     width: 95%;
     background-color: var(--background);
     margin: 0 auto;
-    min-height: 100vh;
+    min-height: 90vh;
  }
 
  @media only screen and (min-width: 480px){
@@ -116,9 +116,9 @@
  
  #homeTitle {
     text-align: center;
-    /* border: 2px solid var(--black); */
+    font-size: 5vmin;
     background-color: var(--background);
-    }
+}
   
  @media only screen and (min-width:576px){
     
@@ -142,7 +142,7 @@
         margin: 0 auto;
         padding-top: 8vmin;
         display: block;
-        width: 50%;
+        width: 40%;
     }
  }
  
@@ -167,11 +167,23 @@
     }
  }
  
+ #navDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
  #navDiv > a {
      text-decoration: none;
      color: var(--black);
      font-size: 2.5vmin;
      padding: 1vmin;
+ }
+
+ #navDiv > a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    transform: rotate(2deg);
  }
  
  #nav-bar > hover {
@@ -201,6 +213,10 @@
     font-size: 5vmin;
  }
 
+ #tuneCollector:hover {
+    font-weight: 600;
+ }
+
  #nav-login {
     display: flex;
     justify-content: end;
@@ -224,6 +240,12 @@
     align-items: center;
     border-radius: 5px;
     padding: 1vmin;
+ }
+
+ #logoutBtn:hover {
+    background-color: var(--background);
+    border-color: var(--black);
+    color: var(--black);
  }
 
  @media only screen and (min-width: 480px) {
