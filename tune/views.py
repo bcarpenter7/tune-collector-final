@@ -28,6 +28,30 @@ def tunes_index(request):
     })
 
 @login_required
+def tunes_index2(request):
+    # get query params, or None
+    key = request.GET.get('key')            # A C D G F
+    sort = request.GET.get('sort')          # name, key, stars, state?
+    print(key, sort)
+
+    tunes = Tune.objects.filter(user=request.user)
+    distinct_keys = tunes.values_list('key').order_by('key').distinct()
+    avail_keys = [key[0] for key in distinct_keys]
+
+    if key:
+        tunes = tunes.filter(key=key.upper())
+
+    if sort and sort in ('name', 'key', 'stars', 'state'):
+        tunes = tunes.order_by(sort)
+
+
+    return render(request, 'tunes/index.html', {
+        'tunes': tunes,
+        'title': 'All',
+        'avail_keys': avail_keys,
+    })
+
+@login_required
 def tunes_detail(request, tune_id):
     tune = Tune.objects.get(pk=tune_id)
     return render(request, 'tunes/detail.html', {
