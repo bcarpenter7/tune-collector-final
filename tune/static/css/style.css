@@ -226,6 +226,7 @@
      color: var(--black);
      font-size: 2.5vmin;
      padding: 1vmin;
+     white-space: nowrap;
  }
 
  #navDiv > a:hover {
@@ -259,6 +260,10 @@
     font-family: 'Caveat', cursive;
     color: var(--black);
     font-size: 5vmin;
+ }
+
+ #tuneCollector {
+    white-space: nowrap;
  }
 
  #tuneCollector:hover {
@@ -468,7 +473,7 @@
         background-color: white;
         border-radius: 5px;
         box-shadow: 1px 1px 1px 1px black;
-        width: 65%;
+        width: 75%;
         margin: 10vmin auto;
      }
 
@@ -479,9 +484,27 @@
 
  @media only screen and (min-width:576px){
 
-  #tableForm > * {
-        font-size: 3vmin;
+
+    #registerForm {
+        width: 65%;
+     }
+
+    .logHeader {
+        padding-top: -1vmin;
+        font-size: 4vmin;
+     }
+
+    #tableForm > * {
+        font-size: 2.5vmin;
     } 
+
+    #fieldId > input, textarea {
+        width: 97.5%;
+        height: 3vmin;
+        margin-bottom: 0vmin;
+        margin-top: 1vmin;
+     }
+
  }
 
  @media only screen and (min-width:780px){
@@ -491,15 +514,28 @@
      }
     
     #registerForm {
-        width: 45%;
+        width: 60%;
      }
 
 
     #tableForm > * {
           font-size: 2vmin;
       } 
+
+    #fieldId > input, textarea {
+        width: 97.5%;
+        height: 3vmin;
+        margin-bottom: 0vmin;
+        margin-top: 1vmin;
+     }
+
    }
  
+   @media only screen and (min-width:980px){
+    #registerForm {
+        width: 45%;
+     }
+   }
  
  
  /* INDEX */
@@ -534,6 +570,11 @@
      margin-bottom: 1vmin;
      text-decoration: none;
  }
+
+ #indexDiv {
+    max-width: 80vmin;
+    margin: 0 auto 1vmin auto;
+ }
  
  .card-content > * {
      text-decoration: none;
@@ -556,6 +597,10 @@
  .card-title {
      color: black;
  }
+
+ #space {
+    height: 5vmin;
+}
  
  /* SHOW/ DETAIL PAGE */
  
