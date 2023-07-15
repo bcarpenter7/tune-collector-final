@@ -39,11 +39,23 @@ function closeNav() {
     <div class="card">
       <div class="card-content">
 
-        {% if tune.stars == '5' %}
-            <span class="card-title">{{ tune.name }} |  {{ tune.stars }} 5</span>
+        {% if tune.stars == 5 %}
+            <span class="card-title">{{ tune.name }} |  <img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"></span>
+        {% endif %}
+        {% if tune.stars == 4 %}
+            <span class="card-title">{{ tune.name }} |  <img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"></span>
+        {% endif %}
+        {% if tune.stars == 3 %}
+        <span class="card-title">{{ tune.name }} |  <img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"></span>
+        {% endif %}
+        {% if tune.stars == 2 %}
+            <span class="card-title">{{ tune.name }} |  <img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"></span>
+        {% endif %}
+        {% if tune.stars == 1 %}
+        <span class="card-title">{{ tune.name }} |  <img src="../static/css/imgs/star.svg"></span>
         {% endif %}
 
-        <span class="card-title">{{ tune.name }}</span>
+       
 
         <p>Key: {{ tune.key }}</p>
       </div>
