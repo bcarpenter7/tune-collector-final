@@ -224,8 +224,9 @@
  #navDiv > a {
      text-decoration: none;
      color: var(--black);
-     font-size: 2.5vmin;
-     padding: 1vmin;
+     font-size: 3.2vmin;
+     /* text-decoration: underline; */
+     /* padding: 1vmin; */
      white-space: nowrap;
  }
 
@@ -274,7 +275,6 @@
     display: flex;
     justify-content: end;
     gap: 5vmin;
-    /* font-size: 4vmin; */
     margin-right: 2vmin;
  }
 
@@ -321,7 +321,7 @@
 
  @media only screen and (min-width: 1060px) {
     #navDiv > a {
-        font-size: 3vmin;
+        font-size: 2.5vmin;
     }
  }
 
@@ -573,7 +573,7 @@
 
  #indexDiv {
     max-width: 80vmin;
-    margin: 0 auto 1vmin auto;
+    margin: 3vmin auto 1vmin auto;
  }
  
  .card-content > * {
@@ -602,6 +602,20 @@
     height: 5vmin;
 }
  
+@media only screen and (min-width: 480px){
+    #titleIndex {
+        font-size: 5vmin;
+    }
+}
+
+@media only screen and (min-width: 760px){
+    .card-content > * {
+        font-size: 2.5vmin;
+    }
+}
+
+
+
  /* SHOW/ DETAIL PAGE */
  
  a:link {
