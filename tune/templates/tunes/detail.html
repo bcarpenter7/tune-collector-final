@@ -1,15 +1,36 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h2>Detail Page</h2>
+<!-- <h2>Detail Page</h2> -->
 
   <div class="card-detail">
     <div class="card-content-detail">
-      <span class="card-title-detail">Name {{ tune.name }}</span>
+      <span class="card-title-detail"><strong>{{ tune.name }} </strong></span>
       <hr>
-      <p>Key: {{ tune.key }}</p>
-      <p>Fiddler: {{ tune.fiddler }}</p>
-      <p>Notes: {{ tune.description }}</p>
+      <p><strong>Key: </strong>{{ tune.key }}</p>
+      <p><strong>Fiddler: </strong>{{ tune.fiddler }}</p>
+      <p><strong>Tuning: </strong>{{ tune.tuning }}</p>
+      <p><strong>State: </strong>{{ tune.state }}</p>
+      <p><strong>Notes: </strong>{{ tune.description }}</p>
+      
+
+      {% if tune.stars == 5 %}
+          <p><strong>Rating: </strong><img src="/Users/bennettcarpenter/code/tunelist/tune/static/css/imgs/emptyStar.svg"><img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"></span></p> 
+      {% endif %}
+      {% if tune.stars == 4 %}
+          <p><strong>Rating: </strong> <img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/emptyStar.svg"></span></p> 
+      {% endif %}
+      {% if tune.stars == 3 %}
+          <p><strong>Rating: </strong><img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/emptyStar.svg"><img src="../static/css/imgs/emptyStar.svg"></span></p> 
+      {% endif %}
+      {% if tune.stars == 2 %}
+          <p><strong>Rating: </strong><img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/emptyStar.svg"><img src="../static/css/imgs/emptyStar.svg"><img src="../static/css/imgs/emptyStar.svg"></span></p> 
+      {% endif %}
+      {% if tune.stars == 1 %}
+          <p><strong>Rating: </strong> <img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/emptyStar.svg"><img src="../static/css/imgs/emptyStar.svg"><img src="../static/css/imgs/emptyStar.svg"><img src="../static/css/imgs/emptyStar.svg"></span></p> 
+      {% endif %}
+
+
     </div>
     <div class="card-action">
       <a href="{% url 'tune:update' tune.id %}">Edit</a>
