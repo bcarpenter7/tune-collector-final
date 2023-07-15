@@ -13,43 +13,6 @@
  
 
 
-    #hamDiv {
-        width: 0;
-        height: 100%;
-        background-color: rgba(29, 29, 29, .95);
-        z-index: 2;
-        position: fixed;
-        top: 0;
-        right: 0; 
-        overflow-x: hidden;
-        padding-top: 60px; 
-        transition: 0.5s;
-    }
-
-    #hamLinks {
-        display: flex;
-        flex-direction: column;
-        padding: 3vmin;
-    }
-
-    #hamLinks > a {
-        color: white;
-        padding-bottom: 3vmin;
-        font-size: 8vmin;
-        white-space: nowrap;
-    }
-
-    #hamBtn {
-        width: 7vmin;
-        height: 7vmin;
-    }
-
-    #titleAndDrop {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
 
 
  /* BASE */
@@ -539,12 +502,53 @@
  
  
  /* INDEX */
+
+
+   /* HAMBURGER MENU */
+ #hamDiv {
+    width: 0;
+    height: 100%;
+    background-color: rgba(29, 29, 29, .95);
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    right: 0; 
+    overflow-x: hidden;
+    padding-top: 60px; 
+    transition: 0.5s;
+}
+
+#hamLinks {
+    display: flex;
+    flex-direction: column;
+    padding: 3vmin;
+}
+
+#hamLinks > a {
+    color: white;
+    padding-bottom: 3vmin;
+    font-size: 8vmin;
+    white-space: nowrap;
+}
+
+#hamBtn {
+    width: 7vmin;
+    height: 7vmin;
+}
+
+#titleAndDrop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+    /* END HAMBURGER MENU */
+
+
  
  #keyChange {
      margin-top: 7vmin;
      display: flex;
      flex-direction: row;
-     /* border: 1px solid black; */
      justify-content: space-between;
  }
  
@@ -563,12 +567,15 @@
  }
  
  .card {
-     background-color: var(--card);
      border: 1px solid black;
      border-radius: 5px;
      padding: 1vmin;
      margin-bottom: 1vmin;
      text-decoration: none;
+ }
+
+ .card:hover {
+    background-color: rgb(238, 236, 236);
  }
 
  #indexDiv {
