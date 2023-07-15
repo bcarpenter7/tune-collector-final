@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for user in users %}
+<a href="{% url 'account:detail' user.pk 'all' %}">
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ user.username }}</span>
+    </div>
+  </div>
+</a>
+{% endfor %}
+{% endblock content %}

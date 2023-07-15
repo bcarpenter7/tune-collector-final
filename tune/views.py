@@ -29,7 +29,7 @@ def tunes_index(request):
 
 @login_required
 def tunes_detail(request, tune_id):
-    tune = Tune.objects.get(pk=tune_id, user=request.user)
+    tune = Tune.objects.get(pk=tune_id)
     return render(request, 'tunes/detail.html', {
         'tune': tune
     })
@@ -80,15 +80,16 @@ class TuneDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 @login_required
 def tunes_note_filter(request, char):
-    all_tunes = Tune.objects.filter(user=request.user).order_by('name')
-    tunes = all_tunes.filter(key__iexact=char)
-    distinct_keys = all_tunes.values_list('key').order_by('key').distinct()
+    tunes = Tune.objects.filter(user=request.user).order_by('name')
+    distinct_keys = tunes.values_list('key').order_by('key').distinct()
     avail_keys = [key[0] for key in distinct_keys]
+
+    if len(char) == 1:
+        tunes = tunes.filter(key__iexact=char)
+
     context = {
         'tunes': tunes,
         'title': char.upper(),
         'avail_keys': avail_keys,
     }
-    if len(char) > 1:
-        context['title'] = f'{char} is an invalid selection for '
     return render(request, 'tunes/index.html', context)
