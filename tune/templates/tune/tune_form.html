@@ -2,13 +2,13 @@
 {% block content %}
 
 
-<form id="registerForm" action="" method="POST">
+<form id="registerForm"  class="addTune" action="" method="POST">
     {% csrf_token %}
 
 {% if object %}
     <h1>Edit <span class="teal-text">{{ object.name }}</span></h1>
 {% else %}
-    <h1 id="logHeader">Add Tune</h1>
+    <h1 class="logHeader">Add Tune</h1>
 {% endif %}
 
     <div id="tableForm">

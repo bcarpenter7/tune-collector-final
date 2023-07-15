@@ -26,23 +26,42 @@ function closeNav() {
 }
 </script>
 
-
-<div id="titleAndDrop">
-  <h2>{{ title }} Tunes</h2>
-  <svg id="hamBtn" onclick="openNav()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-  </svg>
-</div>
-
-{% for tune in tunes %}
-<a href="{% url 'tune:detail' tune.id %}">
-  <div class="card">
-    <div class="card-content">
-      <span class="card-title">{{ tune.name }}</span>
-      <p>Key: {{ tune.key }}</p>
-    </div>
+<div id="indexDiv">
+  <div id="titleAndDrop">
+    <h2 id="titleIndex">{{ title }} Tunes</h2>
+    <svg id="hamBtn" onclick="openNav()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+    </svg>
   </div>
-</a>
-{% endfor %}
 
+  {% for tune in tunes %}
+  <a href="{% url 'tune:detail' tune.id %}">
+    <div class="card">
+      <div class="card-content">
+
+        {% if tune.stars == 5 %}
+            <span class="card-title">{{ tune.name }} |  <img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"></span>
+        {% endif %}
+        {% if tune.stars == 4 %}
+            <span class="card-title">{{ tune.name }} |  <img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"></span>
+        {% endif %}
+        {% if tune.stars == 3 %}
+        <span class="card-title">{{ tune.name }} |  <img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"></span>
+        {% endif %}
+        {% if tune.stars == 2 %}
+            <span class="card-title">{{ tune.name }} |  <img src="../static/css/imgs/star.svg"><img src="../static/css/imgs/star.svg"></span>
+        {% endif %}
+        {% if tune.stars == 1 %}
+        <span class="card-title">{{ tune.name }} |  <img src="../static/css/imgs/star.svg"></span>
+        {% endif %}
+
+       
+
+        <p>Key: {{ tune.key }}</p>
+      </div>
+    </div>
+  </a>
+  {% endfor %}
+  <div id="space"></div>
+</div>
 {% endblock %}

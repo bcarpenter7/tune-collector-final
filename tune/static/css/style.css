@@ -15,12 +15,12 @@
 
     #hamDiv {
         width: 0;
-        height: 100vh;
+        height: 100%;
         background-color: rgba(29, 29, 29, .95);
         z-index: 2;
         position: fixed;
         top: 0;
-        left: 0;
+        right: 0; 
         overflow-x: hidden;
         padding-top: 60px; 
         transition: 0.5s;
@@ -36,6 +36,7 @@
         color: white;
         padding-bottom: 3vmin;
         font-size: 8vmin;
+        white-space: nowrap;
     }
 
     #hamBtn {
@@ -223,8 +224,10 @@
  #navDiv > a {
      text-decoration: none;
      color: var(--black);
-     font-size: 2.5vmin;
-     padding: 1vmin;
+     font-size: 3.2vmin;
+     /* text-decoration: underline; */
+     /* padding: 1vmin; */
+     white-space: nowrap;
  }
 
  #navDiv > a:hover {
@@ -260,6 +263,10 @@
     font-size: 5vmin;
  }
 
+ #tuneCollector {
+    white-space: nowrap;
+ }
+
  #tuneCollector:hover {
     font-weight: 600;
  }
@@ -268,7 +275,6 @@
     display: flex;
     justify-content: end;
     gap: 5vmin;
-    /* font-size: 4vmin; */
     margin-right: 2vmin;
  }
 
@@ -315,14 +321,14 @@
 
  @media only screen and (min-width: 1060px) {
     #navDiv > a {
-        font-size: 3vmin;
+        font-size: 2.5vmin;
     }
  }
 
 
  /* REGISTER FORM */
 
- #registerForm {
+#registerForm {
     padding: 2vmin 4vmin;
     background-color: white;
     border-radius: 5px;
@@ -351,10 +357,11 @@
  #fieldId {
     width: 100%;
  }
+
  #fieldId > input, textarea {
     width: 97.5%;
-    height: 5vmin;
-    margin-bottom: 1vmin;
+    height: 4vmin;
+    margin-bottom: 0vmin;
     margin-top: 1vmin;
  }
 
@@ -466,7 +473,7 @@
         background-color: white;
         border-radius: 5px;
         box-shadow: 1px 1px 1px 1px black;
-        width: 65%;
+        width: 75%;
         margin: 10vmin auto;
      }
 
@@ -477,9 +484,27 @@
 
  @media only screen and (min-width:576px){
 
-  #tableForm > * {
-        font-size: 3vmin;
+
+    #registerForm {
+        width: 65%;
+     }
+
+    .logHeader {
+        padding-top: -1vmin;
+        font-size: 4vmin;
+     }
+
+    #tableForm > * {
+        font-size: 2.5vmin;
     } 
+
+    #fieldId > input, textarea {
+        width: 97.5%;
+        height: 3vmin;
+        margin-bottom: 0vmin;
+        margin-top: 1vmin;
+     }
+
  }
 
  @media only screen and (min-width:780px){
@@ -489,15 +514,28 @@
      }
     
     #registerForm {
-        width: 45%;
+        width: 60%;
      }
 
 
     #tableForm > * {
           font-size: 2vmin;
       } 
+
+    #fieldId > input, textarea {
+        width: 97.5%;
+        height: 3vmin;
+        margin-bottom: 0vmin;
+        margin-top: 1vmin;
+     }
+
    }
  
+   @media only screen and (min-width:980px){
+    #registerForm {
+        width: 45%;
+     }
+   }
  
  
  /* INDEX */
@@ -532,6 +570,11 @@
      margin-bottom: 1vmin;
      text-decoration: none;
  }
+
+ #indexDiv {
+    max-width: 80vmin;
+    margin: 3vmin auto 1vmin auto;
+ }
  
  .card-content > * {
      text-decoration: none;
@@ -554,7 +597,25 @@
  .card-title {
      color: black;
  }
+
+ #space {
+    height: 5vmin;
+}
  
+@media only screen and (min-width: 480px){
+    #titleIndex {
+        font-size: 5vmin;
+    }
+}
+
+@media only screen and (min-width: 760px){
+    .card-content > * {
+        font-size: 2.5vmin;
+    }
+}
+
+
+
  /* SHOW/ DETAIL PAGE */
  
  a:link {
@@ -601,4 +662,11 @@
      display: flex;
      justify-content: space-between;
      padding: 1vmin 1.5vmin;
+ }
+
+
+ /* ADD A TUNE */
+
+ .addTune {
+    margin-top: 3vmin !important;
  }
