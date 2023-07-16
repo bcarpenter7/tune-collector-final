@@ -23,9 +23,21 @@ class Tune(models.Model):
     description = models.TextField(max_length=250, null=True, blank=True)
     stars = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
     user = models.ForeignKey(MyUser, on_delete=models.CASCADE, related_name='tunes', blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
         return f'{self.name} {self.id}'
     
     def get_absolute_url(self):
         return reverse('detail', kwargs={'tune_id': self.id})
+
+    def get_display_name(self):
+        if len(self.name) < 35:
+            return self.name
+        return f'{self.name[:30]}...'
+
+    def get_display_name_mobile(self):
+        if len(self.name) < 19:
+            return self.name
+        return f'{self.name[:14]}...'

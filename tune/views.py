@@ -19,6 +19,10 @@ def about(request):
 
 @login_required
 def tunes_index(request):
+    is_mobile = False
+    if 'Mobile' in request.META['HTTP_USER_AGENT']:
+        is_mobile = True
+
     # get query params, or None
     key = request.GET.get('key')            # A C D G F
     sort = request.GET.get('sort')          # name, key, stars, state?
@@ -30,8 +34,8 @@ def tunes_index(request):
     if key and len(key) == 1:
         tunes = tunes.filter(key=key.upper())
 
-    if sort and sort in ('name', 'stars'):
-        if sort == 'stars':
+    if sort and sort in ('name', 'stars', 'created_at'):
+        if sort == 'stars' or sort == 'created_at':
             tunes = tunes.order_by(f'-{sort}', 'name')
         else:
             tunes = tunes.order_by(sort)
@@ -41,6 +45,7 @@ def tunes_index(request):
         'tunes': tunes,
         'title': 'All',
         'avail_keys': avail_keys,
+        'is_mobile': is_mobile,
     })
 
 
