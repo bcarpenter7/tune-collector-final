@@ -28,6 +28,33 @@ def tunes_index(request):
     })
 
 @login_required
+def tunes_index2(request):
+    # get query params, or None
+    key = request.GET.get('key')            # A C D G F
+    sort = request.GET.get('sort')          # name, key, stars, state?
+
+    tunes = Tune.objects.filter(user=request.user)
+    distinct_keys = tunes.values_list('key').order_by('key').distinct()
+    avail_keys = [key[0] for key in distinct_keys]
+
+    if key and len(key) == 1:
+        tunes = tunes.filter(key=key.upper())
+
+    if sort and sort in ('name', 'stars'):
+        if sort == 'stars':
+            tunes = tunes.order_by(f'-{sort}')
+        else:
+            tunes = tunes.order_by(sort)
+
+
+    return render(request, 'tunes/index.html', {
+        'tunes': tunes,
+        'title': 'All',
+        'avail_keys': avail_keys,
+    })
+
+
+@login_required
 def tunes_detail(request, tune_id):
     tune = Tune.objects.get(pk=tune_id)
     return render(request, 'tunes/detail.html', {
@@ -51,7 +78,7 @@ class TuneCreate(LoginRequiredMixin, CreateView):
 
 class TuneUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Tune
-    fields = '__all__'
+    form_class = TuneForm
 
     def get_success_url(self):
         return reverse_lazy('tune:detail', kwargs={'tune_id': self.object.pk})
