@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load tune_extras %}
 {% block content %}
 
 {% if avail_keys %}
@@ -7,8 +8,11 @@
       <a href="javascript:void(0)" id="closeBtn" onclick="closeNav()">&times;</a>
 
         {% for key in avail_keys %}
-      <a href="{% url 'account:detail' user.pk key %}">{{ key }} Tunes</a>
+          <a href="?{% set_param request 'key' key %}">{{ key }} Tunes</a>
         {% endfor %}
+
+        <a href="?{% set_param request 'sort' 'name' %}">name</a>
+        <a href="?{% set_param request 'sort' 'stars' %}">stars</a>
 
 
     </div>

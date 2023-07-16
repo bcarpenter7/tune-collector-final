@@ -16,19 +16,9 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
-@login_required
-def tunes_index(request):
-    tunes = Tune.objects.filter(user=request.user).order_by('name')
-    distinct_keys = tunes.values_list('key').order_by('key').distinct()
-    avail_keys = [key[0] for key in distinct_keys]
-    return render(request, 'tunes/index.html', {
-        'tunes': tunes,
-        'title': 'All',
-        'avail_keys': avail_keys,
-    })
 
 @login_required
-def tunes_index2(request):
+def tunes_index(request):
     # get query params, or None
     key = request.GET.get('key')            # A C D G F
     sort = request.GET.get('sort')          # name, key, stars, state?
@@ -42,7 +32,7 @@ def tunes_index2(request):
 
     if sort and sort in ('name', 'stars'):
         if sort == 'stars':
-            tunes = tunes.order_by(f'-{sort}')
+            tunes = tunes.order_by(f'-{sort}', 'name')
         else:
             tunes = tunes.order_by(sort)
 
@@ -104,19 +94,3 @@ class TuneDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         # check to make sure that logged-in user owns the object that they are trying to delete
         obj = Tune.objects.get(pk=self.kwargs['pk'])
         return obj.user == self.request.user
-
-@login_required
-def tunes_note_filter(request, char):
-    tunes = Tune.objects.filter(user=request.user).order_by('name')
-    distinct_keys = tunes.values_list('key').order_by('key').distinct()
-    avail_keys = [key[0] for key in distinct_keys]
-
-    if len(char) == 1:
-        tunes = tunes.filter(key__iexact=char)
-
-    context = {
-        'tunes': tunes,
-        'title': char.upper(),
-        'avail_keys': avail_keys,
-    }
-    return render(request, 'tunes/index.html', context)

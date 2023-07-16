@@ -56,19 +56,29 @@ def index_view(request):
 
 
 @login_required
-def detail_view(request, pk, char):
+def detail_view(request, pk):
+    # get query params, or None
+    key = request.GET.get('key')
+    sort = request.GET.get('sort')
+
     user = MyUser.objects.get(pk=pk)
     tunes = Tune.objects.filter(user=user).order_by('name')
     distinct_keys = tunes.values_list('key').order_by('key').distinct()
     avail_keys = [key[0] for key in distinct_keys]
 
-    if len(char) == 1:
-        tunes = tunes.filter(key__iexact=char)
+    if key and len(key) == 1:
+        tunes = tunes.filter(key=key.upper())
+
+    if sort and sort in ('name', 'stars'):
+        if sort == 'stars':
+            tunes = tunes.order_by(f'-{sort}', 'name')
+        else:
+            tunes = tunes.order_by(sort)
 
     context = {
         'user': user,
         'tunes': tunes,
-        'title': char.upper(),
+        'title': 'All',
         'avail_keys': avail_keys,
     }
     return render(request, 'account/detail.html', context)

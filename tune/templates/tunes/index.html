@@ -1,15 +1,19 @@
 {% extends 'base.html' %}
+{% load tune_extras %}
 {% block content %}
 
 {% if avail_keys %}
   <div id="hamDiv">
     <div id="hamLinks">
       <a href="javascript:void(0)" id="closeBtn" onclick="closeNav()">&times;</a>
-    
+
+
         {% for key in avail_keys %}
-      <a href="{% url 'tune:note_filter' key %}">{{ key }} Tunes</a>
+          <a href="?{% set_param request 'key' key %}">{{ key }} Tunes</a>
         {% endfor %}
-    
+
+        <a href="?{% set_param request 'sort' 'name' %}">name</a>
+        <a href="?{% set_param request 'sort' 'stars' %}">stars</a>
 
     </div>
   </div>
