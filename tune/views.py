@@ -78,7 +78,7 @@ class TuneCreate(LoginRequiredMixin, CreateView):
 
 class TuneUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Tune
-    fields = '__all__'
+    form_class = TuneForm
 
     def get_success_url(self):
         return reverse_lazy('tune:detail', kwargs={'tune_id': self.object.pk})
