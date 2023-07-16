@@ -522,6 +522,8 @@
     transition: 0.5s;
 }
 
+
+
 #hamLinks {
     display: flex;
     flex-direction: column;
@@ -538,6 +540,19 @@
 #hamBtn {
     width: 7vmin;
     height: 7vmin;
+    fill: var(--black);
+}
+
+@media only screen and (min-width: 760px){
+    #hamBtn {
+    width: 5vmin;
+    height: 5vmin;
+    }
+}
+
+#hamBtn:hover {
+    cursor: pointer;
+
 }
 
 #titleAndDrop {
