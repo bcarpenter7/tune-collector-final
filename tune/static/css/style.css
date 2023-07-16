@@ -396,7 +396,7 @@
 
  @media only screen and (min-width: 1060px){
     #aboutDiv {
-        margin-top: 5vmin;
+        margin-top: 3vmin;
         min-height: 30vmin;
         width: 60vmin;
     }
@@ -611,13 +611,14 @@
      font-size: 4vmin;
      display:flex;
      align-items: center;
+     white-space: nowrap;
  }
 
  .card-content > p {
     font-size: 3vmin;
  }
 
- .card-title > img {
+ .card-title > svg {
     width: 3vmin;
     white-space: nowrap;
     margin-left: .5vmin;
@@ -706,5 +707,43 @@
  /* ADD A TUNE */
 
  .addTune {
-    margin-top: 3vmin !important;
+    margin-top: 10vmin !important;
  }
+
+
+ @media only screen and (min-width: 760px){
+    .addTune {
+        margin-top: 3vmin !important;
+     }
+}
+
+/* DISPLAY */
+.ratingP {
+    display:flex;
+    align-items: center;
+}
+
+.editAndDelete {
+font-size: 2vmin;
+background-color: var(--black);
+color: var(--background);
+border: 2px solid var(--black);
+text-align: center;
+align-items: center;
+border-radius: 5px;
+padding: 1vmin 2vmin;
+}
+
+#editBtn {
+    background-color: var(--accent);
+    border: 2px solid var(--accent);
+}
+
+#deleteBtn {
+    /* background-color: rgb(219, 6, 6);
+    border: 2px solid rgb(219, 6, 6); */
+    padding: 1vmin 1.5vmin;
+    color: var(--background);
+    border: 2px solid rgb(241, 118, 118);
+    background-color: rgb(241, 118, 118);
+}
