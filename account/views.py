@@ -57,6 +57,10 @@ def index_view(request):
 
 @login_required
 def detail_view(request, pk):
+    is_mobile = False
+    if 'Mobile' in request.META['HTTP_USER_AGENT']:
+        is_mobile = True
+
     # get query params, or None
     key = request.GET.get('key')
     sort = request.GET.get('sort')
@@ -69,8 +73,8 @@ def detail_view(request, pk):
     if key and len(key) == 1:
         tunes = tunes.filter(key=key.upper())
 
-    if sort and sort in ('name', 'stars'):
-        if sort == 'stars':
+    if sort and sort in ('name', 'stars', 'created_at'):
+        if sort == 'stars' or sort == 'created_at':
             tunes = tunes.order_by(f'-{sort}', 'name')
         else:
             tunes = tunes.order_by(sort)
@@ -80,5 +84,6 @@ def detail_view(request, pk):
         'tunes': tunes,
         'title': 'All',
         'avail_keys': avail_keys,
+        'is_mobile': is_mobile,
     }
     return render(request, 'account/detail.html', context)
