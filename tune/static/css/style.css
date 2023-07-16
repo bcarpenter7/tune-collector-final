@@ -347,7 +347,7 @@
     width: 90%;
     color: var(--background);
     padding: 3vmin;
-    margin: 20vmin auto 0 auto;
+    margin: 10vmin auto 0 auto;
     text-align: center;
     min-height: 50vmin;
     border-radius: 5px;
@@ -740,10 +740,50 @@ padding: 1vmin 2vmin;
 }
 
 #deleteBtn {
-    /* background-color: rgb(219, 6, 6);
-    border: 2px solid rgb(219, 6, 6); */
+    border-radius: 5px;
     padding: 1vmin 1.5vmin;
     color: var(--background);
     border: 2px solid rgb(241, 118, 118);
     background-color: rgb(241, 118, 118);
+}
+
+#deleteBtnTwo {
+    border-radius: 5px;
+    padding: 1vmin 1.5vmin;
+    color: var(--background);
+    border: 2px solid rgb(241, 118, 118);
+    background-color: rgb(241, 118, 118);
+    font-size: 4vmin;
+
+}
+
+#cancelBtn {
+    background-color: var(--accent);
+    border: 2px solid var(--accent);
+    color: var(--background);
+    border-radius: 5px;
+    padding: 1vmin 1.5vmin;
+    font-size: 4vmin;
+}
+
+@media only screen and (min-width: 760px){
+    #deleteBtnTwo {
+        font-size: 2.5vmin;
+    }
+    
+    #cancelBtn {
+        font-size: 2.5vmin;
+    }
+}
+
+#deleteForm {
+    margin: 0 auto;
+    width: 60vmin;
+    /* text-align: center; */
+}
+
+#deleteDiv {
+    display: flex;
+    gap: 3vmin;
+    align-items: center;
 }
