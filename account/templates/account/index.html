@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+  <h2 id="titleIndex">Users</h2>
 {% for user in users %}
 <a href="{% url 'account:detail' user.pk %}">
   <div class="card">
@@ -9,4 +10,6 @@
   </div>
 </a>
 {% endfor %}
+
+<div id="space"></div>
 {% endblock content %}

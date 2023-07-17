@@ -8,6 +8,11 @@
 {% if request.user.is_authenticated == False %}
     <div id="buttonHome"> 
         <button id='registerBtn' type="submit"><a href="{% url 'account:register' %}">Register An Account</a></button>
+        <!-- <button id='registerBtn' type="submit"><a href="{% url 'tune:about' %}">Learn More About Us </a></button> -->
+    </div>
+{% else %}
+    <div id="buttonHome"> 
+        <button id='registerBtn' type="submit"><a href="{% url 'tune:about' %}">Learn More About Us </a></button>
     </div>
 {% endif %}
 
