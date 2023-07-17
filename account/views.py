@@ -26,7 +26,8 @@ def user_registration_view(request):
         form = RegistrationForm()
 
     context = {
-        'form': form
+        'form': form,
+        'title': 'Sign up for an account',
     }
     return render(request, 'account/registration/register.html', context)
 
@@ -34,7 +35,10 @@ def user_registration_view(request):
 def user_deletion_view(request):
     if not request.user.is_authenticated:
         return redirect('/')
-    return render(request, 'account/delete.html')
+    context = {
+        'title': 'Delete your account?',
+    }
+    return render(request, 'account/delete.html', context)
 
 
 def user_deletion_confirm(request):
@@ -59,6 +63,7 @@ def index_view(request):
 
     context = {
         'users': users,
+        'title': 'Users list',
     }
     return render(request, 'account/index.html', context)
 
@@ -78,19 +83,30 @@ def detail_view(request, pk):
     distinct_keys = tunes.values_list('key').order_by('key').distinct()
     avail_keys = [key[0] for key in distinct_keys]
 
+    tunes_heading = f" Tunes from {user.username}"
+
     if key and len(key) == 1:
         tunes = tunes.filter(key=key.upper())
+        tunes_heading = key + tunes_heading
+    else:
+        tunes_heading = 'All' + tunes_heading
 
     if sort and sort in ('name', 'stars', 'created_at'):
         if sort == 'stars' or sort == 'created_at':
             tunes = tunes.order_by(f'-{sort}', 'name')
         else:
             tunes = tunes.order_by(sort)
+        sort_heading = {
+            'name': ' alphabetically',
+            'stars': ' by rating',
+            'created_at': ' by date',
+        }
+        tunes_heading += sort_heading[sort]
 
     context = {
         'user': user,
         'tunes': tunes,
-        'title': 'All',
+        'title': tunes_heading,
         'avail_keys': avail_keys,
         'is_mobile': is_mobile,
     }
