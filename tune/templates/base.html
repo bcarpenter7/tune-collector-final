@@ -13,44 +13,31 @@
 </head>
 <body>
     <div id="holder">
-    {% if request.user.is_authenticated %}
+    
     <nav id="nav-bar">
         <div id="homeBtnDiv">
             <a id="tuneCollector" href="/">Tune Collector</a>
         </div>
         <div id="navDiv">
-            <a href="{% url 'tune:about' %}">About </a>
+            <a href="{% url 'account:index' %}">Users </a>
             <p>|</p>
             <a href="{% url 'tune:create' %}">Add Tune</a>
             <p>|</p>
             <a href="{% url 'tune:index' %}">All Tunes</a>
             <br>
-            <div id="nav-login">
-                <a id="logoutBtn" href="{% url 'account:logout' %}">Logout</a>
-            </div>
-        </div>
-       
-    </nav>
-    {% else %}
 
-    <nav id="nav-bar">
-        <div id="homeBtnDiv">
-            <a href="/">Tune Collector</a>
+            {% if request.user.is_authenticated %}
+                <div id="nav-login">
+                    <a id="logoutBtn" href="{% url 'account:logout' %}">Logout</a>
+                </div>
+            {% else %}
+                <div id="nav-login">
+                    <a id="loginBtn" href="{% url 'account:login' %}">Login</a>
+                </div>
+            {% endif%}
         </div>
-        <div id="navDiv">
-            <a href="{% url 'tune:about' %}">About</a>
-            <p>|</p>
-            <a href="{% url 'tune:create' %}">Add Tune</a>
-            <p>|</p>
-            <a href="{% url 'tune:index' %}">All Tunes</a>
-            <br>
-            <div id="nav-login">
-                <a id="loginBtn" href="{% url 'account:login' %}">Login</a>
-            </div>
-        </div>
-       
     </nav>
-    {% endif %}
+  
 
     <main class="container">
         {% include 'messages.html' %} {% include 'form_errors.html' %}

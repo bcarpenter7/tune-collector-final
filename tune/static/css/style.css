@@ -12,8 +12,53 @@
  }
  
 
+/* ACCOUNTS */
 
+#userDetail {
+    display: flex;
+    margin-top: 5vmin;
+    gap: 2vmin;
+    align-items: center;
+    margin-bottom: -5vmin;
+}
 
+#userDetail > h2 {
+    white-space: nowrap;
+    color: var(--black);
+    font-size: 6vmin;
+}
+
+#userDetail > a > img {
+    transform: scaleX(-1);
+    width: 4vmin;
+    border: 2px solid var(--accent);
+    border-radius: 4px;
+    padding: 1vmin;
+}
+
+@media only screen and (min-width: 480px){
+    #userDetail > a > img {
+        width: 3vmin;
+    }
+
+    #userDetail {
+        margin-bottom: 0vmin;
+    }
+
+    #userDetail > h2 {
+        font-size: 4vmin;
+    }
+}
+
+@media only screen and (min-width: 760px){
+    #userDetail > a > img {
+        width: 2vmin;
+    }
+
+    #userDetail > h2 {
+        font-size: 3vmin;
+    }
+}
 
  /* BASE */
 
@@ -65,17 +110,12 @@
  }
 
 
- 
-
- 
- 
  /* HOME */
 
  #buttonHome {
     display: flex;
     justify-content: center;
     gap: 5vmin;
-    margin-bottom: 5vmin;
 } 
  
  #registerBtn > a {
@@ -140,8 +180,15 @@
         border: none;
         color: white;
     }
+
     #homeTitle {
     padding-top: 5vmin;
+    }
+
+    #homepageImg {
+
+        padding-top: 4vmin;
+        width: 60%;
     }
 
  }
@@ -155,7 +202,7 @@
     #homepageImg {
         border-radius: 5px;
         margin: 0 auto;
-        padding-top: 8vmin;
+        padding-top: 3vmin;
         display: block;
         width: 40%;
     }
@@ -633,7 +680,7 @@
     font-size: 3vmin;
  }
 
- .card-title > svg {
+ .card-title > img {
     width: 3vmin;
     white-space: nowrap;
     margin-left: .5vmin;
