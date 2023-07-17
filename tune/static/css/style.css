@@ -155,7 +155,7 @@
  #homepageImg {
      border-radius: 5px;
      margin: 0 auto;
-     padding-top: 0vmin;
+     padding-top: 8vmin;
      display: block;
      width: 80%;
  }
@@ -180,8 +180,15 @@
         border: none;
         color: white;
     }
+
     #homeTitle {
     padding-top: 5vmin;
+    }
+
+    #homepageImg {
+
+        padding-top: 4vmin;
+        width: 60%;
     }
 
  }
