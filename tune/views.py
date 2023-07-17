@@ -12,10 +12,16 @@ from django.urls import reverse_lazy
 # Create your views here.
 
 def home(request):
-    return render(request, 'home.html')
+    context = {
+        'title': 'Tune Tracker',
+    }
+    return render(request, 'home.html', context)
 
 def about(request):
-    return render(request, 'about.html')
+    context = {
+        'title': 'About Us',
+    }
+    return render(request, 'about.html', context)
 
 
 @login_required
@@ -32,19 +38,32 @@ def tunes_index(request):
     distinct_keys = tunes.values_list('key').order_by('key').distinct()
     avail_keys = [key[0] for key in distinct_keys]
 
+    # dynamic display based on how tunes are displayed
+    tunes_heading = ' Tunes'
+
     if key and len(key) == 1:
         tunes = tunes.filter(key=key.upper())
+        tunes_heading = key + tunes_heading
+    else:
+        tunes_heading = 'All' + tunes_heading
 
     if sort and sort in ('name', 'stars', 'created_at'):
         if sort == 'stars' or sort == 'created_at':
             tunes = tunes.order_by(f'-{sort}', 'name')
         else:
             tunes = tunes.order_by(Lower(sort))
+            
+        sort_heading = {
+            'name': ' alphabetically',
+            'stars': ' by rating',
+            'created_at': ' by date',
+        }
+        tunes_heading += sort_heading[sort]
 
 
     return render(request, 'tunes/index.html', {
         'tunes': tunes,
-        'title': 'All',
+        'title': tunes_heading,
         'avail_keys': avail_keys,
         'is_mobile': is_mobile,
     })
@@ -53,13 +72,20 @@ def tunes_index(request):
 @login_required
 def tunes_detail(request, tune_id):
     tune = Tune.objects.get(pk=tune_id)
-    return render(request, 'tunes/detail.html', {
-        'tune': tune
-    })
+    context = {
+        'tune': tune,
+        'title': tune.name
+    }
+    return render(request, 'tunes/detail.html', context)
 
 class TuneCreate(LoginRequiredMixin, CreateView):
     model = Tune
     form_class = TuneForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Create a tune'
+        return context
 
     def get_success_url(self):
         return reverse_lazy('tune:detail', kwargs={'tune_id': self.object.pk})
@@ -76,6 +102,12 @@ class TuneUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Tune
     form_class = TuneForm
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        print(context)
+        context['title'] = f"Editing {context['tune'].name}"
+        return context
+
     def get_success_url(self):
         return reverse_lazy('tune:detail', kwargs={'tune_id': self.object.pk})
 
@@ -91,6 +123,11 @@ class TuneUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 class TuneDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Tune
     success_url = '/tunes'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = f"Deleting {context['tune'].name}"
+        return context
 
     def form_valid(self, form):
         messages.add_message(self.request, messages.SUCCESS, 'Deleted successfully')
