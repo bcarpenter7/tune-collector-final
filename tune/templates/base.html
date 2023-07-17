@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Inter:wght@400;500;700&family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <title>Base</title>
+    <title>{% block title %}{% endblock title %}</title>
 </head>
 <body>
     <div id="holder">
@@ -40,9 +40,10 @@
   
 
     <main class="container">
-        {% include 'messages.html' %} {% include 'form_errors.html' %}
+        {% include 'messages.html' %}
         {% block content %}
         {% endblock %}
+        {% include 'form_errors.html' %}
     </main>
     </div>
 </body>

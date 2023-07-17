@@ -1,22 +1,16 @@
 {% extends 'base.html' %}
 {% load tune_extras %}
 {% load static %}
+{% block title %}{{ title }}{% endblock title %}
 {% block content %}
 
 {% if avail_keys %}
   <div id="hamDiv">
     <div id="hamLinks">
       <a href="javascript:void(0)" id="closeBtn" onclick="closeNav()">&times;</a>
-
-
         {% for key in avail_keys %}
           <a href="?{% set_param request 'key' key %}">{{ key }} Tunes</a>
         {% endfor %}
-
-        <a href="?{% set_param request 'sort' 'name' %}">name</a>
-        <a href="?{% set_param request 'sort' 'stars' %}">stars</a>
-        <a href="?{% set_param request 'sort' 'created_at' %}">recent</a>
-
     </div>
   </div>
 {% endif %}
@@ -34,9 +28,22 @@ function closeNav() {
 
 <div id="indexDiv">
   <div id="titleAndDrop">
-    <h2 id="titleIndex">{{ title }} Tunes</h2>
-    <img id="hamBtn" onclick="openNav()"  src="{% static 'imgs/list.svg' %}">
+    <h2 id="titleIndex">{{ title }}</h2>
+    <div id="filtersDiv">
+      <div class="dropdown">
+          <p class="drop-btn">Sort<img src="{% static 'imgs/sort3.svg' %}"></p>
+          <div class="dropdown-content">
+            <a href="?{% set_param request 'sort' 'name' %}">A-Z</a>
+            <a href="?{% set_param request 'sort' 'stars' %}">Rating</a>
+            <a href="?{% set_param request 'sort' 'created_at' %}">Recent</a>
+          </div>
+      </div>
+      <div>
+        <img id="hamBtn" onclick="openNav()"  src="{% static 'imgs/list.svg' %}">
+      </div>
+    </div>
   </div>
+ 
   {% for tune in tunes %}
   <a href="{% url 'tune:detail' tune.id %}">
     <div class="card">

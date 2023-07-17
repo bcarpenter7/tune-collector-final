@@ -7,7 +7,30 @@
     --darkBlue: rgb(85, 97, 109);
     --accent: rgb(39, 113, 218);
     --accentDark: rgb(36, 104, 200);
+    --red: rgb(241, 118, 118);
+    --backgroundHover: rgb(238, 236, 236);
  }
+
+
+.errorMsg {
+    padding: 1vmin;
+    color: var(--red);
+}
+
+#errorDiv {
+    margin-top: -7vmin;
+}
+
+#msg {
+    color: var(--black);
+}
+
+#msgDiv {
+    margin-top: 3vmin;
+}
+
+
+
 /* ACCOUNTS */
 
 #userDetail {
@@ -375,6 +398,10 @@
     margin-top: 1vmin;
  }
 
+#id_description {
+    resize: none;
+}
+
  .logHeader {
     font-size: 6vmin;
     text-align: center;
@@ -580,15 +607,29 @@
 }
 
 #hamBtn {
-    width: 7vmin;
-    height: 7vmin;
+    margin-top: 1vmin;
+    width: 10vmin;
+    /* height: 12vmin; */
     fill: var(--black);
+}
+
+#filtersDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3vmin;
+}
+
+@media only screen and (min-width: 450px){
+    #hamBtn {
+    width: 7vmin;
+    }
 }
 
 @media only screen and (min-width: 760px){
     #hamBtn {
-    width: 5vmin;
-    height: 5vmin;
+    margin-top: .5vmin;
+    width: 6vmin;
     }
 }
 
@@ -602,6 +643,60 @@
     justify-content: space-between;
     align-items: center;
 }
+
+
+
+
+  .drop-btn, #keys {
+    color: var(--background);
+    padding: 1vmin;
+    border-radius: 5px;
+    border: 1px solid var(--background);
+    background-color: var(--black);
+    display: flex;
+    align-items: center;
+    gap: 1vmin;
+  }
+
+
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--background);
+    min-width: 20vmin;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+
+  .dropdown-content a {
+    color: black;
+    padding: 2vmin;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a:hover {
+    background-color: rgb(238, 236, 236)
+    
+}
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+  .dropdown:hover .drop-btn, #keys:hover {
+    background-color: var(--background);
+    color: var(--black);
+    border-color: var(--black);
+}
+
+    
+
+
+
+
     /* END HAMBURGER MENU */
 
 
@@ -636,7 +731,7 @@
  }
 
  .card:hover {
-    background-color: rgb(238, 236, 236);
+    background-color: var(--backgroundHover);
  }
 
  #indexDiv {
@@ -683,6 +778,10 @@
 
  #space {
     height: 5vmin;
+}
+
+#titleIndex {
+    font-size: 7.5vmin;
 }
  
 @media only screen and (min-width: 480px){
@@ -800,16 +899,16 @@ padding: 1vmin 2vmin;
     border-radius: 5px;
     padding: 1vmin 1.5vmin;
     color: var(--background);
-    border: 2px solid rgb(241, 118, 118);
-    background-color: rgb(241, 118, 118);
+    border: 2px solid var(--red);
+    background-color: var(--red);
 }
 
 #deleteBtnTwo {
     border-radius: 5px;
     padding: 1vmin 1.5vmin;
     color: var(--background);
-    border: 2px solid rgb(241, 118, 118);
-    background-color: rgb(241, 118, 118);
+    border: 2px solid var(--red);
+    background-color: var(--red);
     font-size: 4vmin;
 
 }
@@ -842,4 +941,35 @@ padding: 1vmin 2vmin;
     display: flex;
     gap: 3vmin;
     align-items: center;
+}
+
+
+
+
+/* USERS INDEX */
+
+#userSearchDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#searchInput {
+    width: 40vmin;
+    height: 5vmin;
+}
+
+#searchBtn {
+
+    display: none;
+}
+
+
+@media only screen and (min-width: 760px){
+    #searchInput {
+        width: 30vmin;
+        height: 3vmin;
+    }
+
+
 }

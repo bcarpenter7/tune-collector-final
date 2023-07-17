@@ -1,15 +1,21 @@
 {% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock title %}
 {% block content %}
-  <h2 id="titleIndex">Users</h2>
-{% for user in users %}
-<a href="{% url 'account:detail' user.pk %}">
-  <div class="card">
-    <div class="card-content">
-      <span class="card-title">{{ user.username }}</span>
-    </div>
+<div id="indexDiv">
+  <div id="userSearchDiv">
+    <h2 id="titleIndex">Users</h2>
+    <form id="searchForm" action="{% url 'account:index' %}" method="POST">{% csrf_token %}<input id="searchInput" type="text" name="username" placeholder="Search for other users"><button id="searchBtn" type="submit">search</button></form>
   </div>
-</a>
-{% endfor %}
+    {% for user in users %}
+  <a href="{% url 'account:detail' user.pk %}">
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">{{ user.username }}</span>
+      </div>
+    </div>
+  </a>
+  {% endfor %}
 
-<div id="space"></div>
+  <div id="space"></div>
+</div>
 {% endblock content %}
