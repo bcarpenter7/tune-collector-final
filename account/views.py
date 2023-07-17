@@ -49,6 +49,14 @@ def user_deletion_confirm(request):
 def index_view(request):
     # get all active users other than currently logged-in
     users = MyUser.objects.filter(~Q(pk=request.user.pk), is_active=True)
+
+    # get filter param, or None
+    username = request.POST.get('username')
+    if username:
+        users = users.filter(username__contains=username)
+
+    users = users.order_by('username')
+
     context = {
         'users': users,
     }
