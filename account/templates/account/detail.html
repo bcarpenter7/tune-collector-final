@@ -31,70 +31,70 @@ function closeNav() {
   document.getElementById("hamDiv").style.width = "0%";
 }
 </script>
+<div id="indexDiv">
+  <div id="userDetail">
+    <a href="{% url 'account:index' %}"><img src="{% static 'imgs/arrow.svg' %}"></a>
+    <h2>{{ user.username }}'s Tunes<br> 
+  </div>
+  <div id="titleAndDrop">
+      <h2>{{ title }} Tunes</h2>
+      <img id="hamBtn" onclick="openNav()" src="{% static 'imgs/list.svg' %}">
+  </div>
 
-<div id="userDetail">
-  <a href="{% url 'account:index' %}"><img src="{% static 'imgs/arrow.svg' %}"></a>
-  <h2>{{ user.username }}'s Tunes<br> 
-</div>
-<div id="titleAndDrop">
-    <h2>{{ title }} Tunes</h2>
-    <img id="hamBtn" onclick="openNav()" src="{% static 'imgs/list.svg' %}">
-</div>
+  {% for tune in tunes %}
+    <a href="{% url 'tune:detail' tune.id %}">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">
+          {% if is_mobile %}
+            {{ tune.get_display_name_mobile }} |
+          {% else %}
+            {{ tune.get_display_name }} |
+          {% endif %}
 
-{% for tune in tunes %}
-  <a href="{% url 'tune:detail' tune.id %}">
-    <div class="card">
-      <div class="card-content">
-        <span class="card-title">
-        {% if is_mobile %}
-          {{ tune.get_display_name_mobile }} |
-        {% else %}
-          {{ tune.get_display_name }} |
-        {% endif %}
+          {% if tune.stars == 5 %}
+              <img src=" {% static 'imgs/star.svg' %}">
+              <img src=" {% static 'imgs/star.svg' %}">
+              <img src=" {% static 'imgs/star.svg' %}">
+              <img src=" {% static 'imgs/star.svg' %}">
+              <img src=" {% static 'imgs/star.svg' %}">
 
-        {% if tune.stars == 5 %}
-            <img src=" {% static 'imgs/star.svg' %}">
-            <img src=" {% static 'imgs/star.svg' %}">
-            <img src=" {% static 'imgs/star.svg' %}">
-            <img src=" {% static 'imgs/star.svg' %}">
-            <img src=" {% static 'imgs/star.svg' %}">
+          {% elif tune.stars == 4 %}
+              <img src=" {% static 'imgs/star.svg' %}">
+              <img src=" {% static 'imgs/star.svg' %}">
+              <img src=" {% static 'imgs/star.svg' %}">
+              <img src=" {% static 'imgs/star.svg' %}">
+              <img src=" {% static 'imgs/emptyStar.svg' %}">
 
-        {% elif tune.stars == 4 %}
-            <img src=" {% static 'imgs/star.svg' %}">
-            <img src=" {% static 'imgs/star.svg' %}">
-            <img src=" {% static 'imgs/star.svg' %}">
-            <img src=" {% static 'imgs/star.svg' %}">
-            <img src=" {% static 'imgs/emptyStar.svg' %}">
+          {% elif tune.stars == 3 %}
+              <img src=" {% static 'imgs/star.svg' %}">
+              <img src=" {% static 'imgs/star.svg' %}">
+              <img src=" {% static 'imgs/star.svg' %}">
+              <img src=" {% static 'imgs/emptyStar.svg' %}">
+              <img src=" {% static 'imgs/emptyStar.svg' %}">
 
-        {% elif tune.stars == 3 %}
-            <img src=" {% static 'imgs/star.svg' %}">
-            <img src=" {% static 'imgs/star.svg' %}">
-            <img src=" {% static 'imgs/star.svg' %}">
-            <img src=" {% static 'imgs/emptyStar.svg' %}">
-            <img src=" {% static 'imgs/emptyStar.svg' %}">
+          {% elif tune.stars == 2 %}
+              <img src=" {% static 'imgs/star.svg' %}">
+              <img src=" {% static 'imgs/star.svg' %}">
+              <img src=" {% static 'imgs/emptyStar.svg' %}">
+              <img src=" {% static 'imgs/emptyStar.svg' %}">
+              <img src=" {% static 'imgs/emptyStar.svg' %}">
 
-        {% elif tune.stars == 2 %}
-            <img src=" {% static 'imgs/star.svg' %}">
-            <img src=" {% static 'imgs/star.svg' %}">
-            <img src=" {% static 'imgs/emptyStar.svg' %}">
-            <img src=" {% static 'imgs/emptyStar.svg' %}">
-            <img src=" {% static 'imgs/emptyStar.svg' %}">
+          {% elif tune.stars == 1 %}
+              <img src=" {% static 'imgs/star.svg' %}">
+              <img src=" {% static 'imgs/emptyStar.svg' %}">
+              <img src=" {% static 'imgs/emptyStar.svg' %}">
+              <img src=" {% static 'imgs/emptyStar.svg' %}">
+              <img src=" {% static 'imgs/emptyStar.svg' %}">
 
-        {% elif tune.stars == 1 %}
-            <img src=" {% static 'imgs/star.svg' %}">
-            <img src=" {% static 'imgs/emptyStar.svg' %}">
-            <img src=" {% static 'imgs/emptyStar.svg' %}">
-            <img src=" {% static 'imgs/emptyStar.svg' %}">
-            <img src=" {% static 'imgs/emptyStar.svg' %}">
+          {% endif %}
+        </span>
 
-        {% endif %}
-      </span>
-
-        <p>Key: {{ tune.key }}</p>
+          <p>Key: {{ tune.key }}</p>
+        </div>
       </div>
-    </div>
-  </a>
-  {% endfor %}
-  <div id="space"></div>
-
+    </a>
+    {% endfor %}
+    <div id="space"></div>
+</div>
 {% endblock %}

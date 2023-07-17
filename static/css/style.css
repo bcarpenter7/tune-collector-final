@@ -865,3 +865,34 @@ padding: 1vmin 2vmin;
     gap: 3vmin;
     align-items: center;
 }
+
+
+
+
+/* USERS INDEX */
+
+#userSearchDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#searchInput {
+    width: 40vmin;
+    height: 5vmin;
+}
+
+#searchBtn {
+
+    display: none;
+}
+
+
+@media only screen and (min-width: 760px){
+    #searchInput {
+        width: 30vmin;
+        height: 3vmin;
+    }
+
+
+}
