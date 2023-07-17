@@ -30,7 +30,7 @@ DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ["*"]
 
-
+CSRF_TRUSTED_ORIGINS = ["https://*.fly.dev/"]
 
 # Application definition
 
@@ -69,9 +69,13 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'builtins': [
+                'django.templatetags.static'
+            ],
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'tunelist.wsgi.application'
 
@@ -131,7 +135,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-
+STATICFILES_DIRS = [BASE_DIR / 'static/']
 
 STATIC_URL = 'static/'
 
