@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<!-- <h2>Detail Page</h2> -->
+
+  <div class="card-detail">
+    <div class="card-content-detail">
+      <span class="card-title-detail"><strong>{{ tune.name }} </strong></span>
+      <hr>
+      <p><strong>Key: </strong>{{ tune.key }}</p>
+      <p><strong>Fiddler: </strong>{{ tune.fiddler }}</p>
+      <p><strong>Tuning: </strong>{{ tune.tuning }}</p>
+      <p><strong>State: </strong>{{ tune.state }}</p>
+      <p><strong>Notes: </strong>{{ tune.description }}</p>
+     
+
+      <p class="ratingP"><strong>Rating: </strong>
+            
+      {% if tune.stars == 5 %}
+        <img src=" {% static 'imgs/star.svg' %}">
+        <img src=" {% static 'imgs/star.svg' %}">
+        <img src=" {% static 'imgs/star.svg' %}">
+        <img src=" {% static 'imgs/star.svg' %}">
+        <img src=" {% static 'imgs/star.svg' %}">
+
+      {% elif tune.stars == 4 %}
+        <img src=" {% static 'imgs/star.svg' %}">
+        <img src=" {% static 'imgs/star.svg' %}">
+        <img src=" {% static 'imgs/star.svg' %}">
+        <img src=" {% static 'imgs/star.svg' %}">
+        <img src=" {% static 'imgs/emptyStar.svg' %}">
+
+      {% elif tune.stars == 3 %}
+        <img src=" {% static 'imgs/star.svg' %}">
+        <img src=" {% static 'imgs/star.svg' %}">
+        <img src=" {% static 'imgs/star.svg' %}">
+        <img src=" {% static 'imgs/emptyStar.svg' %}">
+        <img src=" {% static 'imgs/emptyStar.svg' %}">
+
+      {% elif tune.stars == 2 %}
+        <img src=" {% static 'imgs/star.svg' %}">
+        <img src=" {% static 'imgs/star.svg' %}">
+        <img src=" {% static 'imgs/emptyStar.svg' %}">
+        <img src=" {% static 'imgs/emptyStar.svg' %}">
+        <img src=" {% static 'imgs/emptyStar.svg' %}">
+
+      {% elif tune.stars == 1 %}
+        <img src=" {% static 'imgs/star.svg' %}">
+        <img src=" {% static 'imgs/emptyStar.svg' %}">
+        <img src=" {% static 'imgs/emptyStar.svg' %}">
+        <img src=" {% static 'imgs/emptyStar.svg' %}">
+        <img src=" {% static 'imgs/emptyStar.svg' %}">
+      {% endif %}
+      </p>
+
+    </div>
+    <div class="card-action">
+      <a id="editBtn" class="editAndDelete" href="{% url 'tune:update' tune.id %}">Edit</a>
+      <a id="deleteBtn" class="editAndDelete" href="{% url 'tune:delete' tune.id %}">X</a>
+    </div>
+  </div>
+  
+
+
+
+{% endblock %}

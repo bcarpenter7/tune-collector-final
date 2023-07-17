@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form id="registerForm" action="{% url 'account:login' %}" method="POST">
+        {% csrf_token %}
+         <h1 class="logHeader">Login to your account</h1>
+        <div id="tableForm">
+            {% for field in form.visible_fields %}
+                <div>
+                    <label>{{ field.label }}: {{ field.help_text }}</label>
+                    <!-- <div id="field_{{ field.label }}"> -->
+                    <div id="fieldId">
+                        {{ field }}
+                    </div>
+                </div>
+            {% endfor %}
+
+            {% if request.GET.next %}
+                <input type="hidden" name="next" value="{{ request.GET.next }}">
+            {% endif %}
+            <button class="registrationBtn" type="submit">Log in</button>
+        </div>
+    </form>
+{% endblock content %}

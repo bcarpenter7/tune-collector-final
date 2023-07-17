@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div id="deleteForm" >
+<h1>Delete Tune</h1>
+
+
+<h4>Are you sure you want to delete <span class="teal-text">{{ object.name }}</span>?</h4>
+
+
+<form action="" method="POST">
+{% csrf_token %}
+<div id="deleteDiv">
+    <input id="deleteBtnTwo" type="submit" value="Yes - Delete!" class="btn">
+    <a id="cancelBtn" href="{% url 'tune:detail' tune.id %}">Cancel</a>
+</div>
+</form>
+</div>
+{% endblock %}

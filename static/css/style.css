@@ -1,0 +1,845 @@
+:root {
+    --tan: #D7BF9B;
+    --green: #68603C;
+    --card: white;
+    --black: rgb(29, 29, 29);
+    --background: rgb(255, 255, 255);
+    --darkBlue: rgb(85, 97, 109);
+    --accent: rgb(39, 113, 218);
+    --accentDark: rgb(36, 104, 200);
+ }
+/* ACCOUNTS */
+
+#userDetail {
+    display: flex;
+    margin-top: 5vmin;
+    gap: 2vmin;
+    align-items: center;
+    margin-bottom: -5vmin;
+}
+
+#userDetail > h2 {
+    white-space: nowrap;
+    color: var(--black);
+    font-size: 6vmin;
+}
+
+#userDetail > a > img {
+    transform: scaleX(-1);
+    width: 4vmin;
+    border: 2px solid var(--accent);
+    border-radius: 4px;
+    padding: 1vmin;
+}
+
+@media only screen and (min-width: 480px){
+    #userDetail > a > img {
+        width: 3vmin;
+    }
+
+    #userDetail {
+        margin-bottom: 0vmin;
+    }
+
+    #userDetail > h2 {
+        font-size: 4vmin;
+    }
+}
+
+@media only screen and (min-width: 760px){
+    #userDetail > a > img {
+        width: 2vmin;
+    }
+
+    #userDetail > h2 {
+        font-size: 3vmin;
+    }
+}
+
+ /* BASE */
+
+
+ #holder {
+    width: 95%;
+    background-color: var(--background);
+    margin: 0 auto;
+    min-height: 90vh;
+ }
+
+ @media only screen and (min-width: 480px){
+    #holder {
+        width: 90%;
+    }
+ }
+
+ @media only screen and (min-width: 760px){
+    #holder {
+        width: 75%;
+    }
+ }
+
+ .container {
+    width: 80%;
+    background-color: var(--background);
+    margin: 0 auto;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+ 
+ body {
+     background-color: var(--black);
+     margin: 0 auto;
+     font-family: 'Inter', sans-serif;
+     
+ }
+
+ body > * {
+    background-color: var(--background);
+ }
+
+
+ .container {
+    background-color: var(--background);
+ }
+
+
+ /* HOME */
+
+ #buttonHome {
+    display: flex;
+    justify-content: center;
+    gap: 5vmin;
+} 
+ 
+ #registerBtn > a {
+     color: white;
+     padding: 2vmin;
+ }
+ 
+ #registerBtn {
+    background-color: var(--accent);
+    font-size: 4vmin;
+    border-radius: 200px;
+    color: white;
+    padding: 1vmin;
+    font-weight: bold;
+ }
+
+ #registerBtn:hover {
+    background-color: var(--background);
+    color: var(--accent);
+    outline: 3px solid var(--accent);
+ }
+
+ #registerBtn > a:hover {
+    color: var(--accent);
+
+ }
+ 
+ #learnBtn > a {
+     color: white;
+     padding: 2vmin;
+ }
+ 
+ #learnBtn {
+     background-color: var(--darkBlue);
+ }
+ 
+ #homepageImg {
+     border-radius: 5px;
+     margin: 0 auto;
+     padding-top: 8vmin;
+     display: block;
+     width: 80%;
+ }
+
+ #welcomeMsg {
+    text-align: center;
+    background-color: var(--background);
+ }
+ 
+ #homeTitle {
+    text-align: center;
+    font-size: 5vmin;
+    padding-top: 10vmin;
+    background-color: var(--background);
+}
+  
+ @media only screen and (min-width:576px){
+    
+    #buttonHome > button {
+        font-size: 2vmin;
+        border-radius: 200px;
+        border: none;
+        color: white;
+    }
+
+    #homeTitle {
+    padding-top: 5vmin;
+    }
+
+    #homepageImg {
+
+        padding-top: 4vmin;
+        width: 60%;
+    }
+
+ }
+
+ @media only screen and (min-width:992px){
+    
+    #welcomeMsg {
+        font-size: 3vmin;
+    }
+
+    #homepageImg {
+        border-radius: 5px;
+        margin: 0 auto;
+        padding-top: 3vmin;
+        display: block;
+        width: 40%;
+    }
+ }
+ 
+ /* NAV BAR */
+ #nav-bar {
+     display: flex;
+     padding-top: 2vmin;
+     padding-bottom: 2vmin;
+     width: 100%;
+     margin: 5vmin auto 0 auto;
+     gap: 1vmin;
+     align-items: center;
+     background-color: var(--background);
+     border-bottom: 5px solid var(--black);
+     justify-content: space-between;
+ }
+
+ @media only screen and (min-width: 480px){
+    #nav-bar {
+        gap: 0;
+        justify-content: space-between;
+    }
+ }
+ 
+ #navDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ #navDiv > a {
+     text-decoration: none;
+     color: var(--black);
+     font-size: 3.2vmin;
+     /* text-decoration: underline; */
+     /* padding: 1vmin; */
+     white-space: nowrap;
+ }
+
+ #navDiv > a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    transform: rotate(2deg);
+ }
+ 
+ #nav-bar > hover {
+     color: rgb(162, 159, 159);
+     cursor: pointer;
+ }
+
+ #nav-normal {
+    justify-content: center;
+ }
+
+ #navDiv {
+    display: flex;
+    gap: 2vmin;
+ }
+
+ #homeBtnDiv {
+    margin-left: 2vmin;
+    font-family: 'Caveat', cursive;
+    /* font-family: 'Inter', sans-serif;
+    font-family: 'Roboto', sans-serif; */
+ }
+
+ #homeBtnDiv > * {
+    font-family: 'Caveat', cursive;
+    color: var(--black);
+    font-size: 5vmin;
+ }
+
+ #tuneCollector {
+    white-space: nowrap;
+ }
+
+ #tuneCollector:hover {
+    font-weight: 600;
+ }
+
+ #nav-login {
+    display: flex;
+    justify-content: end;
+    gap: 5vmin;
+    margin-right: 2vmin;
+ }
+
+ #nav-login > a {
+    color: var(--background);
+ }
+
+ #loginBtn, #logoutBtn {
+    font-size: 3vmin;
+    background-color: var(--black);
+    color: var(--background);
+    border: 2px solid var(--black);
+    width: 10vmin;
+    text-align: center;
+    height: 2.5vmin;
+    align-items: center;
+    border-radius: 5px;
+    padding: 1vmin;
+ }
+
+ #logoutBtn:hover, #loginBtn:hover {
+    background-color: var(--background);
+    border-color: var(--black);
+    color: var(--black);
+ }
+
+ @media only screen and (min-width: 480px) {
+    #loginBtn, #logoutBtn {
+        font-size: 2.5vmin;
+        width: 8vmin;
+    }
+ }
+
+ @media only screen and (min-width: 760px) {
+    #loginBtn, #logoutBtn {
+        font-size: 2vmin;
+        width: 6vmin;
+    }
+
+    #navDiv > a {
+        font-size: 2vmin;
+    }
+ }
+
+ @media only screen and (min-width: 1060px) {
+    #navDiv > a {
+        font-size: 2.5vmin;
+    }
+ }
+
+
+ /* REGISTER FORM */
+
+#registerForm {
+    padding: 2vmin 4vmin;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px black;
+    width: 85%;
+    margin: 10vmin auto;
+ }
+
+ #registerForm > p {
+    font-size: 3vmin;
+ }
+
+ #ex {
+    color: red;
+    font-size: 2vmin;
+ }
+
+ .registrationBtn {
+    background-color: var(--accent);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 2vmin;
+ }
+
+ #fieldId {
+    width: 100%;
+ }
+
+ #fieldId > input, textarea {
+    width: 97.5%;
+    height: 4vmin;
+    margin-bottom: 0vmin;
+    margin-top: 1vmin;
+ }
+
+ .logHeader {
+    font-size: 6vmin;
+    text-align: center;
+    padding: 0;
+ }
+
+
+ /* ABOUT */
+ 
+ #aboutDiv {
+    background-color: var(--black);
+    width: 90%;
+    color: var(--background);
+    padding: 3vmin;
+    margin: 10vmin auto 0 auto;
+    text-align: center;
+    min-height: 50vmin;
+    border-radius: 5px;
+ }
+
+ #aboutTitle {
+    font-size: 8vmin;
+    margin-top: 2vmin;
+    text-align: center;
+ }
+
+ #aboutPara {
+   font-size: 3.5vmin;
+ }
+
+
+@media only screen and (min-width: 450px){
+    #aboutDiv {
+        margin-top: 5vmin;
+        min-height: 40vmin;
+    }
+
+    #aboutPara {
+        font-size: 2.5vmin;
+    }
+
+    #aboutTitle {
+        font-size: 4vmin;
+     }
+}
+
+ @media only screen and (min-width: 760px){
+    #aboutDiv {
+        margin-top: 5vmin;
+        min-height: 40vmin;
+    }
+
+    #aboutPara {
+        font-size: 2vmin;
+    }
+
+    #aboutTitle {
+        font-size: 5vmin;
+     }
+ }
+
+ @media only screen and (min-width: 1060px){
+    #aboutDiv {
+        margin-top: 3vmin;
+        min-height: 30vmin;
+        width: 60vmin;
+    }
+ }
+ 
+ /* ADD A TUNE */
+ #addTitle {
+     text-align: center;
+ }
+ 
+ #containerForm > form > table {
+     width: 10vmin;
+ }
+ 
+ #btnAddTune {
+     font-size: 6vmin;
+     width: 100%;
+     height: 9vmin;
+     /* background-color: var(--blue); */
+     text-transform: uppercase;
+     letter-spacing: 1px;
+     border: 1px solid rgb(97, 111, 125);
+ }
+ 
+ #tableForm {
+     display: flex;
+     flex-direction: column;
+     gap: 1vmin;
+     width: 100%;
+ }
+ 
+ #tableForm > * {
+     font-size: 5vmin;
+     font-weight: 800;
+ }
+ 
+ @media only screen and (min-width:450px){
+    
+    #registerForm {
+        padding: 2vmin 4vmin;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 1px 1px 1px 1px black;
+        width: 75%;
+        margin: 10vmin auto;
+     }
+
+        #tableForm > * {
+        font-size: 3vmin;
+    }
+ }
+
+ @media only screen and (min-width:576px){
+
+
+    #registerForm {
+        width: 65%;
+     }
+
+    .logHeader {
+        padding-top: -1vmin;
+        font-size: 4vmin;
+     }
+
+    #tableForm > * {
+        font-size: 2.5vmin;
+    } 
+
+    #fieldId > input, textarea {
+        width: 97.5%;
+        height: 3vmin;
+        margin-bottom: 0vmin;
+        margin-top: 1vmin;
+     }
+
+ }
+
+ @media only screen and (min-width:780px){
+
+    .logHeader {
+        font-size: 4vmin;
+     }
+    
+    #registerForm {
+        width: 60%;
+     }
+
+
+    #tableForm > * {
+          font-size: 2vmin;
+      } 
+
+    #fieldId > input, textarea {
+        width: 97.5%;
+        height: 3vmin;
+        margin-bottom: 0vmin;
+        margin-top: 1vmin;
+     }
+
+   }
+ 
+   @media only screen and (min-width:980px){
+    #registerForm {
+        width: 45%;
+     }
+   }
+ 
+ 
+ /* INDEX */
+
+
+   /* HAMBURGER MENU */
+ #hamDiv {
+    width: 0;
+    height: 100%;
+    background-color: rgba(29, 29, 29, .95);
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    right: 0; 
+    overflow-x: hidden;
+    padding-top: 60px; 
+    transition: 0.5s;
+}
+
+
+
+#hamLinks {
+    display: flex;
+    flex-direction: column;
+    padding: 3vmin;
+}
+
+#hamLinks > a {
+    color: white;
+    padding-bottom: 3vmin;
+    font-size: 8vmin;
+    white-space: nowrap;
+}
+
+#hamBtn {
+    width: 7vmin;
+    height: 7vmin;
+    fill: var(--black);
+}
+
+@media only screen and (min-width: 760px){
+    #hamBtn {
+    width: 5vmin;
+    height: 5vmin;
+    }
+}
+
+#hamBtn:hover {
+    cursor: pointer;
+
+}
+
+#titleAndDrop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+    /* END HAMBURGER MENU */
+
+
+ 
+ #keyChange {
+     margin-top: 7vmin;
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+ }
+ 
+ #keyChange > a {
+     background-color: white;
+     border-radius: 2px;
+     padding: 4px;
+ }
+ 
+ #keyChange > * {
+     display: inline-flex;
+ }
+ 
+ a:link {
+     text-decoration: none;
+ }
+ 
+ .card {
+     border: 1px solid black;
+     border-radius: 5px;
+     padding: 1vmin;
+     margin-bottom: 1vmin;
+     text-decoration: none;
+ }
+
+ .card:hover {
+    background-color: rgb(238, 236, 236);
+ }
+
+ #indexDiv {
+    max-width: 80vmin;
+    margin: 3vmin auto 1vmin auto;
+ }
+ 
+ .card-content > * {
+     text-decoration: none;
+     color: rgb(32, 31, 31);
+     font-size: 5vmin;
+ }
+ 
+ .card-content {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     padding: 1vmin;
+     align-items: center;
+ }
+ 
+ .card-content > * {
+     padding: 0;
+     margin: 0;
+ }
+ 
+ .card-title {
+     color: black;
+     font-size: 4vmin;
+     display:flex;
+     align-items: center;
+     white-space: nowrap;
+ }
+
+ .card-content > p {
+    font-size: 3vmin;
+ }
+
+ .card-title > img {
+    width: 3vmin;
+    white-space: nowrap;
+    margin-left: .5vmin;
+ }
+
+ #space {
+    height: 5vmin;
+}
+ 
+@media only screen and (min-width: 480px){
+    #titleIndex {
+        font-size: 5vmin;
+    }
+}
+
+@media only screen and (min-width: 760px){
+    .card-content > * {
+        font-size: 2.5vmin;
+    }
+}
+
+
+
+ /* SHOW/ DETAIL PAGE */
+
+ .card-detail {
+     border: 4px solid var(--black);
+     border-radius: 5px;
+     padding: 1vmin;
+     margin-bottom: 1vmin;
+     text-decoration: none;
+     width: 100%;
+     margin: 10vmin auto 1vmin auto;
+ }
+
+ 
+ .card-content-detail > * {
+     text-decoration: none;
+     color: rgb(32, 31, 31);
+     font-size: 5vmin;
+ }
+ 
+ .card-content-detail {
+     display: flex;
+     flex-direction: column;
+     padding: 1vmin;
+     gap: 2vmin;
+ }
+ 
+ .card-content-detail > * {
+     padding: 0;
+     margin: 0;
+ }
+ 
+ .card-title-detail {
+     color: black;
+ }
+ 
+ .card-action {
+     display: flex;
+     justify-content: space-between;
+     padding: 1vmin 1.5vmin;
+ }
+
+
+ @media only screen and (min-width: 580px){
+    .card-detail {
+        width:80%;
+ }
+
+ .card-content-detail > * {
+    font-size: 3vmin;
+}
+}
+
+@media only screen and (min-width: 1060px){
+    .card-detail {
+        width:60%;
+ }
+
+ .card-content-detail > * {
+    font-size: 3vmin;
+}
+}
+
+ /* ADD A TUNE */
+
+ .addTune {
+    margin-top: 10vmin !important;
+ }
+
+
+ @media only screen and (min-width: 760px){
+    .addTune {
+        margin-top: 3vmin !important;
+     }
+}
+
+/* DISPLAY */
+.ratingP {
+    display:flex;
+    align-items: center;
+}
+
+.editAndDelete {
+font-size: 2vmin;
+background-color: var(--black);
+color: var(--background);
+border: 2px solid var(--black);
+text-align: center;
+align-items: center;
+border-radius: 5px;
+padding: 1vmin 2vmin;
+}
+
+#editBtn {
+    background-color: var(--accent);
+    border: 2px solid var(--accent);
+}
+
+#deleteBtn {
+    border-radius: 5px;
+    padding: 1vmin 1.5vmin;
+    color: var(--background);
+    border: 2px solid rgb(241, 118, 118);
+    background-color: rgb(241, 118, 118);
+}
+
+#deleteBtnTwo {
+    border-radius: 5px;
+    padding: 1vmin 1.5vmin;
+    color: var(--background);
+    border: 2px solid rgb(241, 118, 118);
+    background-color: rgb(241, 118, 118);
+    font-size: 4vmin;
+
+}
+
+#cancelBtn {
+    background-color: var(--accent);
+    border: 2px solid var(--accent);
+    color: var(--background);
+    border-radius: 5px;
+    padding: 1vmin 1.5vmin;
+    font-size: 4vmin;
+}
+
+@media only screen and (min-width: 760px){
+    #deleteBtnTwo {
+        font-size: 2.5vmin;
+    }
+    
+    #cancelBtn {
+        font-size: 2.5vmin;
+    }
+}
+
+#deleteForm {
+    margin: 0 auto;
+    width: 60vmin;
+}
+
+#deleteDiv {
+    display: flex;
+    gap: 3vmin;
+    align-items: center;
+}

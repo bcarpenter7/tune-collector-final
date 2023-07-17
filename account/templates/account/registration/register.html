@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form id="registerForm" action="{% url 'account:register' %}" method="POST">
+        {% csrf_token %}
+        <h1 class="logHeader">Register your account</h1>
+        <div id="tableForm">
+            {% for field in form.visible_fields %}
+            <div>
+                <label>{{ field.label }}: </label>
+                <div id="fieldId">
+                    {{ field }}
+                    <!-- <span id='ex'>{{ field.help_text}}</span> -->
+                </div>
+            </div>
+            {% endfor %}
+
+            <button class="registrationBtn" type="submit">Submit</button>
+        </div>
+
+    </form>
+{% endblock content %}

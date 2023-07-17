@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<form id="registerForm"  class="addTune" action="" method="POST">
+    {% csrf_token %}
+
+{% if object %}
+    <h1>Edit <span class="teal-text">{{ object.name }}</span></h1>
+{% else %}
+    <h1 class="logHeader">Add Tune</h1>
+{% endif %}
+
+    <div id="tableForm">
+        {% for field in form.visible_fields %}
+        <div>
+            <label>{{ field.label }}: </label>
+            <div id="fieldId">
+                {{ field }}
+            </div>
+            
+        </div>
+        {% endfor %}
+        <input class="registrationBtn" type="submit" value="Submit" >
+    </div>
+    
+
+</form>
+
+
+
+{% endblock %}

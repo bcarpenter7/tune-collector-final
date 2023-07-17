@@ -1,0 +1,13 @@
+{% if form.errors %}
+    <div style="text-align: center">
+        {% for field in form %}
+            {% for error in field.errors %}
+                <div style="color: gray">{{ error }}</div>
+            {% endfor %}
+        {% endfor %}
+
+        {% for error in form.non_field_errors %}
+            <div style="color: gray">{{ error }}</div>
+        {% endfor %}
+    </div>
+{% endif %}
