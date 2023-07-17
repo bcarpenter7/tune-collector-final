@@ -398,6 +398,10 @@
     margin-top: 1vmin;
  }
 
+#id_description {
+    resize: none;
+}
+
  .logHeader {
     font-size: 6vmin;
     text-align: center;

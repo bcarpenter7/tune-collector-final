@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import LoginView
 from django.db.models import Q
 from django.db.models.functions import Lower
 from django.shortcuts import render, redirect
@@ -9,6 +10,12 @@ from tune.models import Tune
 from .forms import RegistrationForm
 from .models import MyUser
 
+
+class CustomLoginView(LoginView):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Create an account'
+        return context
 
 def user_registration_view(request):
     if request.user.is_authenticated:

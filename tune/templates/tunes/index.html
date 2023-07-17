@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load tune_extras %}
 {% load static %}
+{% block title %}{{ title }}{% endblock title %}
 {% block content %}
 
 {% if avail_keys %}
@@ -27,7 +28,7 @@ function closeNav() {
 
 <div id="indexDiv">
   <div id="titleAndDrop">
-    <h2 id="titleIndex">{{ title }} Tunes</h2>
+    <h2 id="titleIndex">{{ title }}</h2>
     <div id="filtersDiv">
       <div class="dropdown">
           <p class="drop-btn">Sort<img src="{% static 'imgs/sort3.svg' %}"></p>
