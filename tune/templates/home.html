@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 
 <h2 id="homeTitle">Welcome to Tune Collector</h2>
 <p id="welcomeMsg">Store all your tunes away so you never forget them!</p>
@@ -10,5 +11,6 @@
     </div>
 {% endif %}
 
-<img id='homepageImg' src="https://upload.wikimedia.org/wikipedia/commons/2/22/TheSkilletLickers.jpg">
+<!-- <img id='homepageImg' src="https://upload.wikimedia.org/wikipedia/commons/2/22/TheSkilletLickers.jpg"> -->
+<img id="homepageImg" src="{% static 'css/imgs/The Band - Violin.svg'%}"
 {% endblock %}
