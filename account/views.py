@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from django.db.models.functions import Lower
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 
@@ -55,7 +56,7 @@ def index_view(request):
     if username:
         users = users.filter(username__contains=username)
 
-    users = users.order_by('username')
+    users = users.order_by(Lower('username'))
 
     context = {
         'users': users,
@@ -74,7 +75,7 @@ def detail_view(request, pk):
     sort = request.GET.get('sort')
 
     user = MyUser.objects.get(pk=pk)
-    tunes = Tune.objects.filter(user=user).order_by('name')
+    tunes = Tune.objects.filter(user=user).order_by(Lower('name'))
     distinct_keys = tunes.values_list('key').order_by('key').distinct()
     avail_keys = [key[0] for key in distinct_keys]
 
@@ -83,9 +84,9 @@ def detail_view(request, pk):
 
     if sort and sort in ('name', 'stars', 'created_at'):
         if sort == 'stars' or sort == 'created_at':
-            tunes = tunes.order_by(f'-{sort}', 'name')
+            tunes = tunes.order_by(f'-{sort}', Lower('name'))
         else:
-            tunes = tunes.order_by(sort)
+            tunes = tunes.order_by(Lower(sort))
 
     context = {
         'user': user,
