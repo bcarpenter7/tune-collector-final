@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.db.models.functions import Lower
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
@@ -50,13 +51,15 @@ def tunes_index(request):
         if sort == 'stars' or sort == 'created_at':
             tunes = tunes.order_by(f'-{sort}', 'name')
         else:
-            tunes = tunes.order_by(sort)
+            tunes = tunes.order_by(Lower(sort))
+            
         sort_heading = {
             'name': ' alphabetically',
             'stars': ' by rating',
             'created_at': ' by date',
         }
         tunes_heading += sort_heading[sort]
+
 
     return render(request, 'tunes/index.html', {
         'tunes': tunes,
