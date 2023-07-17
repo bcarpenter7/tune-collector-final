@@ -1,7 +1,7 @@
 {% if messages %}
-    <div style="text-align: center">
+    <div id="msgDiv" style="text-align: center">
         {% for message in messages %}
-            <div style="color:white">{{ message }}</div>
+            <div id="msg">{{ message }}</div>
         {% endfor %}
     </div>
 {% endif %}

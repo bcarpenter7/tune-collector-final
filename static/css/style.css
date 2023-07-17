@@ -7,7 +7,29 @@
     --darkBlue: rgb(85, 97, 109);
     --accent: rgb(39, 113, 218);
     --accentDark: rgb(36, 104, 200);
+    --red: rgb(241, 118, 118);
  }
+
+
+.errorMsg {
+    padding: 1vmin;
+    color: var(--red);
+}
+
+#errorDiv {
+    margin-top: -7vmin;
+}
+
+#msg {
+    color: var(--black);
+}
+
+#msgDiv {
+    margin-top: 3vmin;
+}
+
+
+
 /* ACCOUNTS */
 
 #userDetail {
@@ -800,16 +822,16 @@ padding: 1vmin 2vmin;
     border-radius: 5px;
     padding: 1vmin 1.5vmin;
     color: var(--background);
-    border: 2px solid rgb(241, 118, 118);
-    background-color: rgb(241, 118, 118);
+    border: 2px solid var(--red);
+    background-color: var(--red);
 }
 
 #deleteBtnTwo {
     border-radius: 5px;
     padding: 1vmin 1.5vmin;
     color: var(--background);
-    border: 2px solid rgb(241, 118, 118);
-    background-color: rgb(241, 118, 118);
+    border: 2px solid var(--red);
+    background-color: var(--red);
     font-size: 4vmin;
 
 }
