@@ -2,6 +2,18 @@
 
 [Deployed with fly.io](https://tune-collector.fly.dev/)
 
+## Introduction
+Welcome to the Old Time Tunes Database App! This app is designed to help music enthusiasts store and organize their collection of old-time tunes in a convenient and user-friendly way. Whether you're a seasoned musician or just starting your journey into the world of traditional music, our app offers an efficient solution for managing and discovering tunes.
+
+## Features
+<strong>Create and Manage Lists:</strong> Users can easily create personalized lists of their favorite old-time tunes. Organize your collection by genres, moods, or any custom criteria you prefer.
+
+<strong>Flexible Filtering Options:</strong> The app allows users to filter their tune lists in multiple ways, including by key, alphabetical order, recently added, and rating. This helps you find the perfect tune for any occasion effortlessly.
+
+<strong>Search and Discover:</strong> Connect with other users on the platform and explore their curated tune databases. Search for specific tunes or browse through various collections to expand your musical repertoire.
+
+<strong>Collaborate and Share:</strong> Share your tune lists with friends, family, or the community. Collaborate with other users to create collective playlists or exchange musical ideas.
+
 ## Tunes
 
 The _Tune_ model is used to store information about the _tunes_ that you know how to play. The most important fields are the name of the _tune_, the key it is played in, the tuning required for your instrument, and your personal rating of 1 to 5 stars. It can also store the fiddler known for playing it, the state of origin, and a brief description. All tunes are associated with the _user_ that created it through a related _User_ model.
