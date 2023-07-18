@@ -18,7 +18,7 @@ class TuneForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['name'].widget.attrs.update(
-            {'class': 'form-input', 'placeholder': 'Name', 'autofocus': True}
+            {'class': 'form-input', 'placeholder': 'Name', 'autofocus': True, 'onfocus': 'this.setSelectionRange(this.value.length, this.value.length)'}
         )
         self.fields['key'].widget.attrs.update(
             {'class': 'form-input'}

@@ -48,59 +48,8 @@ function closeNav() {
   </div>
 
   {% for tune in tunes %}
-    <a href="{% url 'tune:detail' tune.id %}">
-      <div class="card">
-        <div class="card-content">
-          <span class="card-title">
-          {% if is_mobile %}
-            {{ tune.get_display_name_mobile }} |
-          {% else %}
-            {{ tune.get_display_name }} |
-          {% endif %}
-
-          {% if tune.stars == 5 %}
-              <img src=" {% static 'imgs/star.svg' %}">
-              <img src=" {% static 'imgs/star.svg' %}">
-              <img src=" {% static 'imgs/star.svg' %}">
-              <img src=" {% static 'imgs/star.svg' %}">
-              <img src=" {% static 'imgs/star.svg' %}">
-
-          {% elif tune.stars == 4 %}
-              <img src=" {% static 'imgs/star.svg' %}">
-              <img src=" {% static 'imgs/star.svg' %}">
-              <img src=" {% static 'imgs/star.svg' %}">
-              <img src=" {% static 'imgs/star.svg' %}">
-              <img src=" {% static 'imgs/emptyStar.svg' %}">
-
-          {% elif tune.stars == 3 %}
-              <img src=" {% static 'imgs/star.svg' %}">
-              <img src=" {% static 'imgs/star.svg' %}">
-              <img src=" {% static 'imgs/star.svg' %}">
-              <img src=" {% static 'imgs/emptyStar.svg' %}">
-              <img src=" {% static 'imgs/emptyStar.svg' %}">
-
-          {% elif tune.stars == 2 %}
-              <img src=" {% static 'imgs/star.svg' %}">
-              <img src=" {% static 'imgs/star.svg' %}">
-              <img src=" {% static 'imgs/emptyStar.svg' %}">
-              <img src=" {% static 'imgs/emptyStar.svg' %}">
-              <img src=" {% static 'imgs/emptyStar.svg' %}">
-
-          {% elif tune.stars == 1 %}
-              <img src=" {% static 'imgs/star.svg' %}">
-              <img src=" {% static 'imgs/emptyStar.svg' %}">
-              <img src=" {% static 'imgs/emptyStar.svg' %}">
-              <img src=" {% static 'imgs/emptyStar.svg' %}">
-              <img src=" {% static 'imgs/emptyStar.svg' %}">
-
-          {% endif %}
-        </span>
-
-          <p>Key: {{ tune.key }}</p>
-        </div>
-      </div>
-    </a>
-    {% endfor %}
+      {% include 'tunes/tune_ratings.html' %}
+  {% endfor %}
     <div id="space"></div>
 </div>
 {% endblock %}
