@@ -6,13 +6,13 @@
 Welcome to the Old Time Tunes Database App! This app is designed to help music enthusiasts store and organize their collection of old-time tunes in a convenient and user-friendly way. Whether you're a seasoned musician or just starting your journey into the world of traditional music, our app offers an efficient solution for managing and discovering tunes.
 
 ## Features
-<h3><strong>Create and Manage Lists:</strong></h3> Users can easily create personalized lists of their favorite old-time tunes. Organize your collection by genres, moods, or any custom criteria you prefer.
+<h4><strong>Create and Manage Lists:</strong></h4> Users can easily create personalized lists of their favorite old-time tunes. Organize your collection by genres, moods, or any custom criteria you prefer.
 
-<strong>Flexible Filtering Options:</strong> The app allows users to filter their tune lists in multiple ways, including by key, alphabetical order, recently added, and rating. This helps you find the perfect tune for any occasion effortlessly.
+<h4><strong>Flexible Filtering Options:</strong></h4> The app allows users to filter their tune lists in multiple ways, including by key, alphabetical order, recently added, and rating. This helps you find the perfect tune for any occasion effortlessly.
 
-<strong>Search and Discover:</strong> Connect with other users on the platform and explore their curated tune databases. Search for specific tunes or browse through various collections to expand your musical repertoire.
+<h4><strong>Search and Discover:</strong></h4> Connect with other users on the platform and explore their curated tune databases. Search for specific tunes or browse through various collections to expand your musical repertoire.
 
-<strong>Collaborate and Share:</strong> Share your tune lists with friends, family, or the community. Collaborate with other users to create collective playlists or exchange musical ideas.
+<h4><strong>Collaborate and Share:</strong></h4> Share your tune lists with friends, family, or the community. Collaborate with other users to create collective playlists or exchange musical ideas.
 
 ## Tunes
 
