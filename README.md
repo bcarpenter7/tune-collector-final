@@ -17,7 +17,7 @@ Welcome to Tune Collector, an Old Time Tunes Database App! This app is designed 
 
 ## Tunes
 
-The _Tune_ model is used to store information about the _tunes_ that you know how to play. The most important fields are the name of the _tune_, the key it is played in, the tuning required for your instrument, and your personal rating of 1 to 5 stars. It can also store the fiddler known for playing it, the state of origin, and a brief description. All tunes are associated with the _user_ that created it through a related _User_ model.
+The _Tune_ model is used to store information about the _tunes_ that you know how to play or are currently learning. The most important fields are the name of the _tune_, the key it is played in, the tuning required for your instrument, and your personal rating of 1 to 5 stars. It can also store the fiddler known for playing it, the state of origin, and a brief description. All tunes are associated with the _user_ that created it through a related _User_ model.
 
 ### Routes
 
