@@ -2,6 +2,18 @@
 
 [Deployed with fly.io](https://tune-collector.fly.dev/)
 
+## Introduction
+Welcome to the Old Time Tunes Database App! This app is designed to help traditional music enthusiasts store and organize their collection of old-time tunes in a convenient and user-friendly way. Whether you're a seasoned musician or just starting your journey into the world of traditional music, our app offers an efficient solution for managing and discovering tunes.
+
+## Features
+<h4><strong>Create Tunes And Manage Tune Lists:</strong></h4> Users can easily create personalized notes about their favorite old-time tunes. Store information about the tuning, key, artist, and more! Tune-Collector automatically makes tune lists for the user to use.
+
+<h4><strong>Flexible Filtering Options:</strong></h4> The app allows users to filter their tune lists in multiple ways, including by key, alphabetical order, recently added, and rating. This helps you find the perfect tune for any occasion effortlessly.
+
+<h4><strong>Search and Discover:</strong></h4> Connect with other users on the platform and explore their curated tune databases. Search for specific tunes or browse through various collections to expand your musical repertoire.
+
+<h4><strong>Collaborate and Share:</strong></h4> Share your tune lists with friends, family, or the community. Can't remember a tune from your last jam? Look through your friend's tunes and find that tune you want to learn.
+
 ## Tunes
 
 The _Tune_ model is used to store information about the _tunes_ that you know how to play. The most important fields are the name of the _tune_, the key it is played in, the tuning required for your instrument, and your personal rating of 1 to 5 stars. It can also store the fiddler known for playing it, the state of origin, and a brief description. All tunes are associated with the _user_ that created it through a related _User_ model.
@@ -55,6 +67,15 @@ The _User_ model is used to allow anyone to sign up and track their tunes. It re
 | GET    | /about | About page with short description of project and creators                |            No payload             |
 
 <br />
+
+### Screenshots
+<img width="300" height="300" alt="Screenshot 2023-07-18 at 1 56 01 PM" src="https://github.com/bcarpenter7/tune-list/assets/126187218/6369ecc1-a446-4881-bed8-de2e1ae29bda">
+<img width="300" height="300" alt="Screenshot 2023-07-18 at 1 57 34 PM" src="https://github.com/bcarpenter7/tune-list/assets/126187218/7e961726-e88f-41a8-8f5c-3361b46d7a90">
+<img width="300" height="300" alt="Screenshot 2023-07-18 at 1 58 05 PM" src="https://github.com/bcarpenter7/tune-list/assets/126187218/4d930fbd-a25a-43b9-9571-6b760bcb8dda">
+<img width="300" height="300" alt="Screenshot 2023-07-18 at 1 58 35 PM" src="https://github.com/bcarpenter7/tune-list/assets/126187218/a2577a42-aec2-42bc-ad15-837b59813954">
+<img width="300" height="300" alt="Screenshot 2023-07-18 at 1 59 00 PM" src="https://github.com/bcarpenter7/tune-list/assets/126187218/104c9409-f4b1-43f9-ad45-1d3eb3c0ed95">
+<img width="300" height="300" alt="Screenshot 2023-07-18 at 1 59 26 PM" src="https://github.com/bcarpenter7/tune-list/assets/126187218/89796aee-3d9d-4c57-a72a-2a5afbbdcd08">
+
 
 ### Next steps
 
