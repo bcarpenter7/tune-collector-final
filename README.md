@@ -6,13 +6,13 @@
 Welcome to the Old Time Tunes Database App! This app is designed to help music enthusiasts store and organize their collection of old-time tunes in a convenient and user-friendly way. Whether you're a seasoned musician or just starting your journey into the world of traditional music, our app offers an efficient solution for managing and discovering tunes.
 
 ## Features
-<h4><strong>Create and Manage Lists:</strong></h4> Users can easily create personalized lists of their favorite old-time tunes. Organize your collection by genres, moods, or any custom criteria you prefer.
+<h4><strong>Create Tunes And Manage Tune Lists:</strong></h4> Users can easily create personalized notes about their favorite old-time tunes. Store information about the tuning, key, artist, and more! Tune-Collector automatically makes tune lists for the user to use.
 
 <h4><strong>Flexible Filtering Options:</strong></h4> The app allows users to filter their tune lists in multiple ways, including by key, alphabetical order, recently added, and rating. This helps you find the perfect tune for any occasion effortlessly.
 
 <h4><strong>Search and Discover:</strong></h4> Connect with other users on the platform and explore their curated tune databases. Search for specific tunes or browse through various collections to expand your musical repertoire.
 
-<h4><strong>Collaborate and Share:</strong></h4> Share your tune lists with friends, family, or the community. Collaborate with other users to create collective playlists or exchange musical ideas.
+<h4><strong>Collaborate and Share:</strong></h4> Share your tune lists with friends, family, or the community. Can't remember a tune from your last jam? Look through your friend's tunes and find that tune you want to learn.
 
 ## Tunes
 
