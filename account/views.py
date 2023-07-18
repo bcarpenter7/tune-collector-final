@@ -120,7 +120,7 @@ def detail_view(request, pk):
         'title': f"{tunes_heading} {sort_display}",
         'avail_keys': avail_keys,
         'is_mobile': is_mobile,
-        'key': key,
-        'sort': sort,
+        'curr_key': key,
+        'curr_sort': sort,
     }
     return render(request, 'account/detail.html', context)

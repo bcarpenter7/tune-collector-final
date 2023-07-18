@@ -12,6 +12,9 @@
     --backgroundHover: rgb(238, 236, 236);
  }
 
+.bold {
+    font-weight: bolder;
+}
 
 .errorMsg {
     padding: 1vmin;
