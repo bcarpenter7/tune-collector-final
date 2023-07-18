@@ -70,6 +70,8 @@ def tunes_index(request):
         'is_mobile': is_mobile,
         'curr_key': key,
         'curr_sort': sort,
+        'tunes_heading': tunes_heading,
+        'sort_heading': sort_display,
     })
 
 

@@ -29,7 +29,7 @@ function closeNav() {
 
 <div id="indexDiv">
   <div id="titleAndDrop">
-    <h2 id="titleIndex">{{ title }}</h2>
+    <h2 id="titleIndex">{{ tunes_heading }}</h2>
     <div id="filtersDiv">
       <div class="dropdown">
           <p class="drop-btn">Sort<img src="{% static 'imgs/sort3.svg' %}"></p>
@@ -44,7 +44,7 @@ function closeNav() {
       </div>
     </div>
   </div>
- 
+  <h4 id="sortTitle">{{ sort_heading }}</h4>
   {% for tune in tunes %}
       {% include 'tunes/tune_ratings.html' %}
   {% endfor %}
