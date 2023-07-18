@@ -11,8 +11,8 @@ class UserLoginForm(AuthenticationForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs.update({'class': 'form-input', 'placeholder': 'Name', 'autofocus': True})
-        self.fields['password'].widget.attrs.update({'class': 'form-input'})
+        self.fields['username'].widget.attrs.update({'class': 'form-input', 'placeholder': 'Username', 'autofocus': True})
+        self.fields['password'].widget.attrs.update({'class': 'form-input', 'placeholder': 'Enter Password'})
 
 
 class RegistrationForm(UserCreationForm):
@@ -30,10 +30,10 @@ class RegistrationForm(UserCreationForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs.update({'class': 'form-input', 'placeholder': 'Name', 'autofocus': True})
+        self.fields['username'].widget.attrs.update({'class': 'form-input', 'placeholder': 'Username', 'autofocus': True})
         self.fields['email'].widget.attrs.update({'class': 'form-input', 'placeholder': 'email@address.com'})
-        self.fields['password1'].widget.attrs.update({'class': 'form-input'})
-        self.fields['password2'].widget.attrs.update({'class': 'form-input'})
+        self.fields['password1'].widget.attrs.update({'class': 'form-input', 'placeholder': 'Create Password'})
+        self.fields['password2'].widget.attrs.update({'class': 'form-input', 'placeholder': 'Reenter Password'})
 
     def clean_username(self):
         username = self.cleaned_data['username']
