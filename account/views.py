@@ -99,6 +99,8 @@ def detail_view(request, pk):
     else:
         tunes_heading = 'All' + tunes_heading
 
+    sort_display = ''
+
     if sort and sort in ('name', 'stars', 'created_at'):
         if sort == 'stars' or sort == 'created_at':
             tunes = tunes.order_by(f'-{sort}', Lower('name'))
@@ -106,17 +108,19 @@ def detail_view(request, pk):
             tunes = tunes.order_by(Lower(sort))
             
         sort_heading = {
-            'name': ' alphabetically',
-            'stars': ' by rating',
-            'created_at': ' by date',
+            'name': ' A-Z',
+            'stars': ' Rating',
+            'created_at': ' Recent',
         }
-        tunes_heading += sort_heading[sort]
+        sort_display = f"Sorted: {sort_heading[sort]}"
 
     context = {
         'user': user,
         'tunes': tunes,
-        'title': tunes_heading,
+        'title': f"{tunes_heading} {sort_display}",
         'avail_keys': avail_keys,
         'is_mobile': is_mobile,
+        'key': key,
+        'sort': sort,
     }
     return render(request, 'account/detail.html', context)
