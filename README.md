@@ -15,6 +15,10 @@ Welcome to Tune Collector, an Old Time Tunes Database App! This app is designed 
 
 <h4><strong>Collaborate and Share:</strong></h4> Share your tune lists with friends, family, or the community. Can't remember a tune from your last jam? Look through your friend's tunes and find that tune you want to learn.
 
+## Languages and Frameworks
+
+Python and Django were used to create the functionality and logic of this project. The pages were created using HTML and Django Templating Language for displaying dynamic data. The styling was done by applying CSS through HTML classes and ids. All persistent data is kept in a PostgreSQL database instance, deployed alongside the main app which was Dockerized using fly.io.
+
 ## Tunes
 
 The _Tune_ model is used to store information about the _tunes_ that you know how to play or are currently learning. The most important fields are the name of the _tune_, the key it is played in, the tuning required for your instrument, and your personal rating of 1 to 5 stars. It can also store the fiddler known for playing it, the state of origin, and a brief description. All tunes are associated with the _user_ that created it through a related _User_ model.
@@ -33,10 +37,6 @@ The _Tune_ model is used to store information about the _tunes_ that you know ho
 | POST   | /tunes/\<int:pk\>/delete    | Deletes your _tune_                              |                  No payload                   |
 
 <br />
-
-## Languages and Frameworks
-
-Python and Django were used to create the functionality and logic of this project. The pages were created using HTML and Django Templating Language for displaying dynamic data. The styling was done by applying CSS through HTML classes and ids. All persistent data is kept in a PostgreSQL database instance, deployed alongside the main app which was Dockerized using fly.io.
 
 ## Users
 
