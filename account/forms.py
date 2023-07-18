@@ -11,7 +11,7 @@ class UserLoginForm(AuthenticationForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs.update({'class': 'form-input', 'placeholder': 'Username', 'autofocus': True})
+        self.fields['username'].widget.attrs.update({'class': 'form-input', 'placeholder': 'Username', 'autofocus': True, 'onfocus': 'this.setSelectionRange(this.value.length, this.value.length)'})
         self.fields['password'].widget.attrs.update({'class': 'form-input', 'placeholder': 'Enter Password'})
 
 
