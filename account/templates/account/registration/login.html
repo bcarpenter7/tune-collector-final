@@ -19,6 +19,7 @@
                 <input type="hidden" name="next" value="{{ request.GET.next }}">
             {% endif %}
             <button class="registrationBtn" type="submit">Log in</button>
+            <p id="noAccount">Don't have an account yet? <a href="{% url 'account:register' %}">Sign up</a></p>
         </div>
     </form>
 {% endblock content %}

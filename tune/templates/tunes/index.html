@@ -9,11 +9,12 @@
     <div id="hamLinks">
       <a href="javascript:void(0)" id="closeBtn" onclick="closeNav()">&times;</a>
         {% for key in avail_keys %}
-          <a href="?{% set_param request 'key' key %}">{{ key }} Tunes</a>
+          <a href="?{% set_param request 'key' key %}" class="{% if key == curr_key %}bold{% endif %}">{{ key }} Tunes</a>
         {% endfor %}
     </div>
   </div>
 {% endif %}
+
 
 
 <script> 
@@ -33,9 +34,9 @@ function closeNav() {
       <div class="dropdown">
           <p class="drop-btn">Sort<img src="{% static 'imgs/sort3.svg' %}"></p>
           <div class="dropdown-content">
-            <a href="?{% set_param request 'sort' 'name' %}">A-Z</a>
-            <a href="?{% set_param request 'sort' 'stars' %}">Rating</a>
-            <a href="?{% set_param request 'sort' 'created_at' %}">Recent</a>
+            <a href="?{% set_param request 'sort' 'name' %}" class="{% if 'name' == curr_sort %}bold{% endif %}">A-Z</a>
+            <a href="?{% set_param request 'sort' 'stars' %}" class="{% if 'stars' == curr_sort %}bold{% endif %}">Rating</a>
+            <a href="?{% set_param request 'sort' 'created_at' %}" class="{% if 'created_at' == curr_sort %}bold{% endif %}">Recent</a>
           </div>
       </div>
       <div>

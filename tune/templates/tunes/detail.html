@@ -4,8 +4,21 @@
 {% load static %}
 
 <!-- <h2>Detail Page</h2> -->
+<div id="indexDiv">
+  {% if request.user != tune.user %}
+  <div id="userDetail">
+    <a href="{% url 'account:detail' tune.user.id %}"><img src="{% static 'imgs/arrow.svg' %}"></a>
+    <h2>{{ tune.user }}'s Tunes<br> 
+  </div>
+  {% elif request.user == tune.user %}
+  <div id="userDetail">
+    <a href="{% url 'tune:index' %}"><img src="{% static 'imgs/arrow.svg' %}"></a>
+    <h2>Back To All Tunes<br> 
+  </div>
+  {% endif %}
 
   <div class="card-detail">
+
     <div class="card-content-detail">
       <span class="card-title-detail"><strong>{{ tune.name }} </strong></span>
       <hr>
@@ -56,13 +69,16 @@
       </p>
 
     </div>
+
+    {% if request.user == tune.user %}
     <div class="card-action">
       <a id="editBtn" class="editAndDelete" href="{% url 'tune:update' tune.id %}">Edit</a>
       <a id="deleteBtn" class="editAndDelete" href="{% url 'tune:delete' tune.id %}">X</a>
     </div>
+    {% endif %}
   </div>
   
 
 
-
+</div>
 {% endblock %}
