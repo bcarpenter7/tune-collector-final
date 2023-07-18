@@ -34,6 +34,10 @@ The _Tune_ model is used to store information about the _tunes_ that you know ho
 
 <br />
 
+## Languages and Frameworks
+
+Python and Django were used to create the functionality and logic of this project. The pages were created using HTML and Django Templating Language for displaying dynamic data. The styling was done by applying CSS through HTML classes and ids. All persistent data is kept in a PostgreSQL database instance, deployed alongside the main app which was Dockerized using fly.io.
+
 ## Users
 
 The _User_ model is used to allow anyone to sign up and track their tunes. It requires a unique username and email address, and a strong password. Currently, no email verification is required but could be easily added if needed.
