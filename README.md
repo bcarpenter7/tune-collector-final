@@ -5,7 +5,7 @@ Try it now! Use the link below:
 [Deployed with fly.io](https://tune-collector.fly.dev/)
 
 ## Introduction
-Welcome to Tune Collector, an Old Time Tunes Database App! This app is designed to help traditional music enthusiasts store and organize their collection of old-time tunes in a convenient and user-friendly way. Whether you're a seasoned musician or just starting your journey into the world of traditional music, our app offers an efficient solution for managing and discovering tunes.
+Welcome to Tune Collector, an old time tunes database application! This app is designed to help traditional music enthusiasts store and organize their collection of old-time tunes in a convenient and user-friendly way. Whether you're a seasoned musician or just starting your journey into the world of traditional music, our app offers an efficient solution for managing and discovering tunes.
 
 ## Features
 <h4><strong>Create Tunes And Manage Tune Lists:</strong></h4> Users can easily create personalized notes about their favorite old-time tunes. Store information about the tuning, key, artist, and more! Tune-Collector automatically makes tune lists for the user to use.
