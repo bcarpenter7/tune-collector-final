@@ -4,6 +4,7 @@
     --card: white;
     --black: rgb(29, 29, 29);
     --background: rgb(255, 255, 255);
+    --backgroundDark: rgb(240, 240, 240);
     --darkBlue: rgb(85, 97, 109);
     --accent: rgb(39, 113, 218);
     --accentDark: rgb(36, 104, 200);
@@ -13,6 +14,7 @@
  }
 
 .bold {
+    color: var(--accent) !important;
     font-weight: bolder;
 }
 
@@ -268,11 +270,13 @@
      white-space: nowrap;
  }
 
+ @media only screen and (min-width: 480px){
  #navDiv > a:hover {
     cursor: pointer;
     text-decoration: underline;
     transform: rotate(2deg);
  }
+}
  
  #nav-bar > hover {
      color: rgb(162, 159, 159);
@@ -304,10 +308,12 @@
  #tuneCollector {
     white-space: nowrap;
  }
-
+ 
+ @media only screen and (min-width: 480px){
  #tuneCollector:hover {
     font-weight: 600;
  }
+}
 
  #nav-login {
     display: flex;
