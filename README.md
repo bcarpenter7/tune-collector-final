@@ -1,9 +1,11 @@
 # Tune Collector
-
+Try it now! Use the link below:
+<br>
+<br>
 [Deployed with fly.io](https://tune-collector.fly.dev/)
 
 ## Introduction
-Welcome to the Old Time Tunes Database App! This app is designed to help traditional music enthusiasts store and organize their collection of old-time tunes in a convenient and user-friendly way. Whether you're a seasoned musician or just starting your journey into the world of traditional music, our app offers an efficient solution for managing and discovering tunes.
+Welcome to Tune Collector, an old time tunes database application! This app is designed to help traditional music enthusiasts store and organize their collection of old-time tunes in a convenient and user-friendly way. Whether you're a seasoned musician or just starting your journey into the world of traditional music, our app offers an efficient solution for managing and discovering tunes.
 
 ## Features
 <h4><strong>Create Tunes And Manage Tune Lists:</strong></h4> Users can easily create personalized notes about their favorite old-time tunes. Store information about the tuning, key, artist, and more! Tune-Collector automatically makes tune lists for the user to use.
@@ -14,9 +16,13 @@ Welcome to the Old Time Tunes Database App! This app is designed to help traditi
 
 <h4><strong>Collaborate and Share:</strong></h4> Share your tune lists with friends, family, or the community. Can't remember a tune from your last jam? Look through your friend's tunes and find that tune you want to learn.
 
+## Languages and Frameworks
+
+Python and Django were used to create the functionality and logic of this project. The pages were created using HTML and Django Templating Language for displaying dynamic data. The styling was done by applying CSS through HTML classes and ids. All persistent data is kept in a PostgreSQL database instance, deployed alongside the main app which was Dockerized using fly.io.
+
 ## Tunes
 
-The _Tune_ model is used to store information about the _tunes_ that you know how to play. The most important fields are the name of the _tune_, the key it is played in, the tuning required for your instrument, and your personal rating of 1 to 5 stars. It can also store the fiddler known for playing it, the state of origin, and a brief description. All tunes are associated with the _user_ that created it through a related _User_ model.
+The _Tune_ model is used to store information about the _tunes_ that you know how to play or are currently learning. The most important fields are the name of the _tune_, the key it is played in, the tuning required for your instrument, and your personal rating of 1 to 5 stars. It can also store the fiddler known for playing it, the state of origin, and a brief description. All tunes are associated with the _user_ that created it through a related _User_ model.
 
 ### Routes
 
@@ -39,7 +45,7 @@ The _User_ model is used to allow anyone to sign up and track their tunes. It re
 
 ### Routes
 
-> *All _user_ routes start with /account
+> *All _user_ routes start with _/account_
 
 | Method | Path               | Purpose                                                                         |               Note                |
 |--------|--------------------|---------------------------------------------------------------------------------|:---------------------------------:|
