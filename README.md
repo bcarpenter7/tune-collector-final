@@ -45,7 +45,7 @@ The _User_ model is used to allow anyone to sign up and track their tunes. It re
 
 ### Routes
 
-> *All _user_ routes start with /account
+> *All _user_ routes start with _/account_
 
 | Method | Path               | Purpose                                                                         |               Note                |
 |--------|--------------------|---------------------------------------------------------------------------------|:---------------------------------:|
