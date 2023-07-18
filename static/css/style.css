@@ -594,6 +594,19 @@
  /* INDEX */
 
 
+#sortTitle {
+    margin: -4vmin auto 2vmin auto;
+    color: var(--darkBlue);
+}
+
+@media only screen and (min-width: 450px){
+    #sortTitle {
+        margin-top: -3vmin;
+        color: var(--darkBlue);
+    }
+}
+
+
    /* HAMBURGER MENU */
  #hamDiv {
     width: 0;

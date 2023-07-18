@@ -91,7 +91,7 @@ def detail_view(request, pk):
     distinct_keys = tunes.values_list('key').order_by('key').distinct()
     avail_keys = [key[0] for key in distinct_keys]
 
-    tunes_heading = f" Tunes from {user.username}"
+    tunes_heading = ' Tunes'
 
     if key and len(key) == 1:
         tunes = tunes.filter(key=key.upper())
@@ -122,5 +122,7 @@ def detail_view(request, pk):
         'is_mobile': is_mobile,
         'curr_key': key,
         'curr_sort': sort,
+        'tunes_heading': tunes_heading,
+        'sort_heading': sort_display,
     }
     return render(request, 'account/detail.html', context)
